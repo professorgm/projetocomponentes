@@ -258,6 +258,8 @@ app.get('/ladding', (req, res) => {
   } 
   module.exports = app; 
 
+  
+
 
 
 // Disponibiliza a informação de login para todas as páginas

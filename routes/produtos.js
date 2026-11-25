@@ -14,7 +14,8 @@ router.get('/', async (req, res) => {
                 c.nome AS categoria,
                 p.descricao,
                 p.preco,
-                p.estoque
+                p.estoque,
+                p.minimo
             FROM produtos p
             INNER JOIN categorias c
                 ON p.id_categoria = c.id_categoria
