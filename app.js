@@ -253,9 +253,11 @@ app.get('/ladding', (req, res) => {
     });
 });
 
-app.listen(porta, () => { 
- console.log(`Servidor rodando em http://localhost:${porta}`); 
-}); 
+  if (require.main === module && !process.env.VERCEL) { 
+      app.listen(process.env.PORT || 3000); 
+  } 
+  module.exports = app; 
+
 
 
 // Disponibiliza a informação de login para todas as páginas

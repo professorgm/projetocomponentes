@@ -155,6 +155,7 @@
 .acoes {
     display: flex; /* Coloca os botões lado a lado */
     gap: 10px; /* Define 10px de espaço entre os botões */
+    margin-top: 15px;
 }
 
 /* Aplica regras aos links e botões dentro da área de ações */
