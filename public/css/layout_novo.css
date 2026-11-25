@@ -1,0 +1,50 @@
+/* NOVO: botão sanduíche escondido em telas grandes */
+.botao-menu {
+    display: none;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* NOVO: regras aplicadas quando a tela tiver até 600px */
+@media (max-width: 600px) {
+
+    /* NOVO: permite que o botão apareça */
+    .botao-menu {
+        display: block;
+    }
+
+    /* NOVO: posiciona o menu abaixo do cabeçalho */
+    nav {
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        background: #9fdbf9;
+    }
+
+    /* NOVO: mostra o menu quando recebe a classe "aberto" */
+    nav.aberto {
+        display: flex;
+    }
+
+    /* NOVO: cada link ocupa uma linha */
+    nav a {
+        padding: 15px;
+        justify-content: center;
+    }
+
+    /* NOVO: mantém o cabeçalho como referência para o menu */
+    header {
+        position: relative;
+    }
+
+    /* NOVO: esconde o espaço vazio que não é necessário no celular */
+    .espaco {
+        display: none;
+    }
+}

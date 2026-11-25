@@ -1,0 +1,39 @@
+<!--  <section class="componente">-->
+    <div class="tabela-head">
+            <div>
+                <h1>Tabela de produtos</h1>
+                <p>As linhas mudam de aparência ao passar o mouse.</p>
+            </div>
+            <form>
+                <button class="adicionar" type="submit" title="Adicionar produto">
+                    + 
+                </button>
+            </form>
+    </div>
+    <div class="tabela-conteudo">
+      <table> 
+        <thead><tr><th>Nome do produto</th><th>Imagem</th><th>Quantidade</th><th>Estoque atual</th><th>Estoque mínimo</th><th>Ações</th></tr></thead>
+        <tbody>
+        <% produtos.forEach(produto => { %>
+          <tr>
+            <td><%= produto.nome %></td>
+            <td><img src="<%= produto.imagem %>" alt="<%= produto.nome %>"></td>
+            <td><%= produto.quantidade %></td>
+            <td><%= produto.atual %></td>
+            <td><%= produto.minimo %></td>
+            <td>
+              <div class="acoes">
+                <form>
+                  <button class="editar">Editar</button>
+                </form>
+                <form>
+                  <button class="deletar">Excluir</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        <% }) %>
+        </tbody>
+      </table>
+    </div>
+<!--  </section>-->

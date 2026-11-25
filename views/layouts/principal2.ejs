@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= titulo %> | Estoque</title>
+        <link rel="stylesheet" href="/css/tabela.css">
+        <link rel="stylesheet" href="/css/formulario.css">
+        <link rel="stylesheet" href="/css/layout.css">
+        <!--
+        <link rel="stylesheet" href="/css/layout.css">
+        <link rel="stylesheet" href="/css/geral.css">
+        -->
+    </head>
+    <body>
+            <header>
+                <div class="logo">LOGO</div>
+
+                <nav id="menu">
+                    <a href="/">Início</a>
+                    <a href="/sobre">Sobre</a>
+                    <a href="/contato">Contato</a>
+                </nav>
+
+                <div class="espaco"></div>
+            </header>
+
+        <main class="pagina">
+            <%- body %>
+        </main>
+
+        <footer>
+            <p>Meu Projeto © 2026</p>
+        </footer>
+
+    </body>
+</html>

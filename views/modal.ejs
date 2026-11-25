@@ -1,0 +1,103 @@
+<!DOCTYPE html> <!-- Define o documento como HTML5 -->
+<html lang="pt-BR"> <!-- Define o idioma da página -->
+<head> <!-- Inicia as configurações da página -->
+    <meta charset="UTF-8"> <!-- Permite acentos e caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Adapta a página aos dispositivos -->
+    <title>Exemplo de Modal</title> <!-- Define o título da aba -->
+
+    <style> /* Inicia o CSS da página */
+
+        /* BOTÃO DE ABRIR */
+        .abrir_modal { /* Estiliza o botão de abertura */
+            padding: 12px 20px; /* Define o espaçamento interno */
+            background: #4CAF50; /* Define o fundo verde */
+            color: white; /* Define o texto branco */
+            border: none; /* Remove a borda */
+            border-radius: 8px; /* Arredonda os cantos */
+            cursor: pointer; /* Mostra a mãozinha */
+        } /* Finaliza o botão */
+
+        /* FUNDO DO MODAL */
+        #area_modal { /* Estiliza a área que cobre a tela */
+            display: none; /* Esconde o modal inicialmente */
+            position: fixed; /* Mantém o modal fixo na tela */
+            inset: 0; /* Ocupa toda a tela (top, right, bottom e left) */
+            background: rgba(0,0,0,0.5); /* Cria o fundo escuro transparente */
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+        } /* Finaliza a área do modal */
+
+        /* CAIXA DO MODAL */
+        .modal { /* Estiliza a caixa de conteúdo */
+            position: relative; /* Permite posicionar o botão X dentro dela */
+            background: white; /* Define o fundo branco */
+            padding: 30px; /* Define o espaçamento interno */
+            border-radius: 12px; /* Arredonda os cantos */
+            width: 90%; /* Ocupa até 90% da largura disponível */
+            max-width: 600px; /* Limita a largura máxima */
+            box-shadow: 0 4px 15px #0003; /* Adiciona uma sombra */
+            animation: aparecer 0.4s; /* Aplica a animação de entrada */
+        } /* Finaliza a caixa do modal */
+
+        /* ANIMAÇÃO */
+        @keyframes aparecer { /* Cria a animação de entrada */
+            from { opacity: 0; transform: translateY(-20px); } /* Começa invisível e deslocado para cima */
+            to { opacity: 1; transform: translateY(0); } /* Termina visível na posição original (mais abaixo) */
+        } /* Finaliza a animação */
+
+        /* BOTÃO DE FECHAR */
+        .fechar_modal { /* Estiliza o botão X */
+            position: absolute; /* Posiciona dentro da caixa do modal */
+            top: 10px; /* Define a distância do topo */
+            right: 15px; /* Define a distância da direita */
+            border: none; /* Remove a borda */
+            background: none; /* Remove o fundo */
+            font-size: 25px; /* Aumenta o tamanho do X */
+            cursor: pointer; /* Mostra a mãozinha */
+        } /* Finaliza o botão de fechar */
+
+        .modal h2 {
+            margin-bottom: 20px;
+        }
+        .modal p {
+            line-height: 1.3;
+        }
+    </style> <!-- Finaliza o CSS -->
+</head> <!-- Finaliza as configurações -->
+
+<body> <!-- Inicia o conteúdo da página -->
+
+    <button class="abrir_modal">Abrir mensagem</button> <!-- Botão que abre o modal -->
+
+    <div id="area_modal"> <!-- Fundo escuro que cobre a tela -->
+        <div class="modal"> <!-- Caixa branca do modal -->
+            <button class="fechar_modal">&times;</button> <!-- Botão X para fechar -->
+            <h2>Mensagem do dia</h2> <!-- Título do conteúdo -->
+            <p>O futuro não está pronto. Ele está esperando alguém programá-lo. Seja você quem escreve esse código!</p> <!-- Texto do modal -->
+        </div> <!-- Finaliza a caixa branca -->
+    </div> <!-- Finaliza o fundo do modal -->
+
+    <script> // Inicia o JavaScript
+
+        const area = document.querySelector("#area_modal"); // Seleciona a área do modal
+        const abrir = document.querySelector(".abrir_modal"); // Seleciona o botão de abrir
+        const fechar = document.querySelector(".fechar_modal"); // Seleciona o botão X
+
+        abrir.addEventListener("click", () => { // Aguarda o clique no botão de abrir
+            area.style.display = "flex"; // Exibe e centraliza o modal
+        }); // Finaliza o evento de abertura
+
+        fechar.addEventListener("click", () => { // Aguarda o clique no botão X
+            area.style.display = "none"; // Esconde o modal
+        }); // Finaliza o evento de fechamento
+
+        area.addEventListener("click", (evento) => { // Verifica os cliques na área externa
+            if (evento.target === area) { // Confere se o clique ocorreu fora da caixa branca
+                area.style.display = "none"; // Fecha o modal
+            } // Finaliza a condição
+        }); // Finaliza o evento de clique externo
+
+    </script> <!-- Finaliza o JavaScript -->
+
+</body> <!-- Finaliza o conteúdo -->
+</html> <!-- Finaliza o documento -->

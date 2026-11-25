@@ -1,0 +1,28 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<canvas id="meuGrafico"></canvas>
+
+<script>
+    const dados = {
+        datasets: [{
+            backgroundColor: [
+                rgba(255,205,86,0.4),
+            ],
+        }]
+    };
+
+    new Chart(
+        document.getElementById('meuGrafico'),
+        {
+            type:"bar",
+            data:dados,
+            options: {
+                //indexAxis: 'y',
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        }
+    )
+</script>

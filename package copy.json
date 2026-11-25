@@ -1,0 +1,14 @@
+{
+  "name": "projeto-componentes-estoque",
+  "version": "1.0.0",
+  "description": "Projeto Node.js + Express + EJS com componentes responsivos de controle de estoque.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}

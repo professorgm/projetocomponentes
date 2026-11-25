@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <!-- Permite que a página se adapte à largura de celulares e tablets. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Controle de estoque</title>
+
+    <!-- Importa a folha de estilos do projeto. -->
+    <link rel="stylesheet" href="/css/ladding.css">
+
+    <!-- Biblioteca de ícones Font Awesome. -->
+    <!-- <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> -->
+
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL@20..48,100..700,0..1" rel="stylesheet">
+</head>
+<body>
+
+    <header class="cabecalho" id="inicio">
+        
+            <!-- Título principal. -->
+            <h1>Controle de estoque</h1>
+            <!-- Subtítulo do banner. -->
+            <h2>Armazene seus material, acompanhe as movimentações e mantenha seu estoque sempre em dia</h2>
+            <!-- Linha decorativa com ícone centralizado. -->
+            <div class="linha-icone">
+                <div></div>
+                <span class="material-symbols-outlined">deployed_code</span>
+                <div></div>
+            </div>
+            <!-- Texto curto de apresentação. -->
+            <p>
+                Solução simples e eficiente para o controle de estoque da sua empresa ou escola.
+            </p>
+            <!-- Botão que leva até a seção de informações. -->
+            <a class="botao-destaque" href="/dashboard">
+                <span class="material-symbols-outlined">login</span>
+                <span>Entrar</span>
+            </a>
+    </header>
+    
+    <main>
+        <section class="recursos" id="recursos">
+
+                <article class="recurso recurso1">
+                    <!-- Ícone dentro do círculo. -->
+                    <div class="recurso_icone">
+                        <!-- <i class="" aria-hidden="true"></i> -->
+                         <span class="material-symbols-outlined">package_2</span>
+                    </div>
+                    <!-- Título e descrição do bloco. -->
+                    <h2>Produtos</h2>
+                    <p>Cadastre e consulte produtos, verifique quantidades e controle por setor</p>
+                    <!-- Link de cada bloco. -->
+                    <a href="" class="recurso_link">
+                        Ver produtos
+                        <span class="material-symbols-outlined">arrow_forward_ios</span>
+                    </a>
+                </article>
+
+                <article class="recurso recurso2">
+                    <!-- Ícone dentro do círculo. -->
+                    <div class="recurso_icone">
+                        <!-- <i class="" aria-hidden="true"></i> -->
+                         <span class="material-symbols-outlined">swap_horiz</span>
+                    </div>
+                    <!-- Título e descrição do bloco. -->
+                    <h2>Movimentações</h2>
+                    <p>Registre entradas e saídas, acompanhe o histórico de movimentações do estoque.</p>
+                    <!-- Link de cada bloco. -->
+                    <a href="" class="recurso_link">
+                        Registrar movimentações
+                        <span class="material-symbols-outlined">arrow_forward_ios</span>
+                    </a>
+                </article>
+
+                <article class="recurso recurso3">
+                    <!-- Ícone dentro do círculo. -->
+                    <div class="recurso_icone">
+                        <!-- <i class="" aria-hidden="true"></i> -->
+                         <span class="material-symbols-outlined">finance_mode</span>
+                    </div>
+                    <!-- Título e descrição do bloco. -->
+                    <h2>Relatórios</h2>
+                    <p>Acesse relatórios e gráficos para acompanhar o desempenho de seu estoque.</p>
+                    <!-- Link de cada bloco. -->
+                    <a href="" class="recurso_link">
+                        Ver relatórios
+                        <span class="material-symbols-outlined">arrow_forward_ios</span>
+                    </a>
+                </article>
+
+        </section>
+
+        <!-- Destinos simples dos links de demonstração. -->
+        <section class="informacoes" id="sobre">
+            <h2>Sobre nossa empresa</h2>
+            <p>Somos uma empresa especializada em soluções para controle de estoque, oferecendo ferramentas para organizar produtos, acompanhar movimentações e facilitar a gestão dos recursos. Nosso objetivo é tornar o controle de materiais mais simples, eficiente e confiável.</p>
+        </section>
+
+        <section class="informacoes informacoes--clara" id="atendimento">
+            <h2>Atendimento</h2>
+            <p>Oferecemos suporte para auxiliar na utilização do sistema, esclarecendo dúvidas sobre cadastro de produtos, entradas, saídas e acompanhamento de estoque. Nosso compromisso é proporcionar um atendimento ágil e eficiente para manter sua gestão sempre organizada.</p>
+        </section>
+
+        <section class="informacoes" id="contato">
+            <h2>Entre em contato</h2>
+            <p>Tem alguma dúvida ou sugestão sobre nosso sistema de controle de estoque? Entre em contato conosco! Estamos disponíveis para receber mensagens, ouvir suas necessidades e ajudar a melhorar sua experiência.<br>Telefone: (00) 0000-0000 · E-mail: contato@exemplo.com</p>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <p>&copy; <%= new Date().getFullYear() %> Controle de estoque LTDA. Todos os direitos reservados.</p>
+        <a href="#inicio">Voltar ao topo ↑</a>
+    </footer>
+
+
+</body>
+</html>

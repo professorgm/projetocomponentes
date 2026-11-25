@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <!-- Permite utilizar acentos e caracteres especiais. -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Adapta a página ao tamanho da tela do dispositivo. -->
+
+    <title>Dashboard de Estoque</title>
+    <!-- Define o título da página exibido na aba do navegador. -->
+
+
+    <!-- CSS EXTERNO:
+         Carrega o arquivo dashboard.css.
+         As classes utilizadas no HTML serão estilizadas por esse arquivo.
+         Exemplo: .painel, .linha, .card-indicador e .card-grafico.
+         O Flexbox também é configurado nesse arquivo. -->
+    <link rel="stylesheet" href="/css/dashboard.css">
+
+
+    <!-- CHART.JS:
+         Importa a biblioteca Chart.js pela internet.
+         Ela disponibiliza os recursos necessários para criar os gráficos.
+         Sem essa biblioteca, o comando new Chart() não funcionará. -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <!-- HTML:
+         main representa o conteúdo principal da página.
+
+         CSS:
+         A classe painel controla a largura, a margem e o
+         posicionamento geral do dashboard. -->
+    <main class="painel">
+
+
+        <!-- CABEÇALHO DO DASHBOARD -->
+
+        <!-- CSS:
+             cabecalho organiza o título e a etiqueta com Flexbox.
+             subtitulo, descricao e etiqueta definem a aparência dos textos. -->
+        <div class="cabecalho">
+                <p class="subtitulo">CONTROLE INTERNO</p>
+                <h1>Dashboard</h1>
+                <p class="descricao">Visão geral dos produtos e das movimentações.</p>
+            <!-- <span class="etiqueta">Dados demonstrativos</span> -->
+        </div>
+
+        <!-- LINHA 1: QUATRO INDICADORES NUMÉRICOS -->
+        <!-- CSS:
+             linha organiza os elementos utilizando Flexbox.
+             indicadores é uma classe adicional de identificação da seção. -->
+        <section class="linha indicadores">
+
+            <!-- CARD 1: TOTAL DE UNIDADES -->
+            <!-- CSS:
+                 card-indicador define o formato visual do cartão.
+                 titulo-indicador e legenda formatam os textos.
+                 numero destaca o valor numérico. -->
+            <div class="card-indicador">
+                <p class="titulo-indicador">
+                    Unidades em estoque
+                </p>
+                <!-- JAVASCRIPT:
+                     id="totalUnidades" permite que o app.js
+                     localize esta div e insira o resultado do cálculo. -->
+                <div class="numero" id="totalUnidades">0</div>
+                <p class="legenda">
+                    Soma das quantidades
+                </p>
+
+            </div>
+
+
+            <!-- CARD 2: VALOR TOTAL DO ESTOQUE -->
+
+            <div class="card-indicador">
+
+                <p class="titulo-indicador">
+                    Valor do estoque
+                </p>
+
+                <!-- JAVASCRIPT:
+                     O app.js calcula o valor total e substitui
+                     o conteúdo desta div. -->
+                <div class="numero" id="valorEstoque">R$ 0,00</div>
+
+                <p class="legenda">
+                    Quantidade × valor unitário
+                </p>
+
+            </div>
+
+
+            <!-- CARD 3: PRODUTOS COM ESTOQUE BAIXO -->
+
+            <div class="card-indicador">
+
+                <p class="titulo-indicador">
+                    Estoque baixo
+                </p>
+
+                <!-- JAVASCRIPT:
+                     Recebe a quantidade de produtos abaixo
+                     ou iguais ao estoque mínimo. -->
+                <div class="numero" id="estoqueBaixo">0</div>
+
+                <p class="legenda">
+                    Produtos no mínimo ou abaixo
+                </p>
+
+            </div>
+
+
+            <!-- CARD 4: TOTAL DE CATEGORIAS -->
+
+            <div class="card-indicador">
+
+                <p class="titulo-indicador">
+                    Categorias
+                </p>
+
+                <!-- JAVASCRIPT:
+                     Recebe a quantidade de categorias diferentes. -->
+                <div class="numero" id="totalCategorias">0</div>
+
+                <p class="legenda">
+                    Categorias cadastradas
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- LINHA 2: DOIS GRÁFICOS LADO A LADO -->
+
+        <!-- CSS:
+             A classe linha utiliza Flexbox para posicionar
+             os dois cartões na mesma linha, quando houver espaço. -->
+        <section class="linha">
+
+
+            <!-- CARD DO GRÁFICO DE PIZZA -->
+
+            <article class="card-grafico">
+
+                <!-- CSS:
+                     cabecalho-card organiza o título e a descrição. -->
+                <div class="cabecalho-card">
+
+                    <h2>Produtos por categoria</h2>
+
+                    <p>Gráfico de pizza</p>
+
+                </div>
+
+                <!-- CSS:
+                     area-grafico define a largura e a altura
+                     disponíveis para o gráfico. -->
+
+                <div class="area-grafico">
+
+                    <!-- CHART.JS:
+                         canvas é a área onde a biblioteca desenha
+                         o gráfico de pizza.
+
+                         JAVASCRIPT:
+                         O ID graficoPizza permite que o app.js
+                         encontre este elemento e crie o gráfico. -->
+                    <canvas id="graficoPizza"></canvas>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD DO GRÁFICO DE COLUNAS -->
+
+            <article class="card-grafico">
+
+                <div class="cabecalho-card">
+
+                    <h2>Quantidade por categoria</h2>
+
+                    <p>Gráfico de colunas</p>
+
+                </div>
+
+                <div class="area-grafico">
+
+                    <!-- CHART.JS:
+                         Área de desenho do gráfico de colunas.
+
+                         JAVASCRIPT:
+                         O ID graficoColunas identifica o elemento
+                         utilizado na criação do gráfico. -->
+                    <canvas id="graficoColunas"></canvas>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- LINHA 3: GRÁFICO DE BARRAS HORIZONTAIS -->
+
+        <section class="linha">
+
+            <!-- CSS:
+                 card-grafico define o cartão.
+                 largura-grande permite que ele ocupe uma
+                 proporção maior da linha utilizando Flexbox. -->
+            <article class="card-grafico largura-grande">
+
+                <div class="cabecalho-card">
+
+                    <h2>Quantidade por produto</h2>
+
+                    <p>Gráfico de barras horizontais</p>
+
+                </div>
+
+                <!-- CSS:
+                     area-grafico define a área do desenho.
+                     area-alta aumenta a altura disponível para o gráfico. -->
+                <div class="area-grafico area-alta">
+
+                    <!-- CHART.JS:
+                         Canvas utilizado para desenhar as barras horizontais.
+
+                         JAVASCRIPT:
+                         O ID graficoBarras identifica o gráfico no app.js. -->
+                    <canvas id="graficoBarras"></canvas>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- LINHA 4: GRÁFICO DE LINHAS -->
+
+        <section class="linha">
+
+            <!-- CSS:
+                 largura-total faz o cartão ocupar toda a largura
+                 disponível da linha. -->
+            <article class="card-grafico largura-total">
+
+                <div class="cabecalho-card">
+
+                    <h2>Movimentação mensal</h2>
+
+                    <p>Comparação entre entradas e saídas</p>
+
+                </div>
+
+                <div class="area-grafico">
+
+                    <!-- CHART.JS:
+                         Área de desenho do gráfico de linhas.
+
+                         JAVASCRIPT:
+                         O ID graficoLinhas permite que o app.js
+                         localize o canvas e crie o gráfico. -->
+                    <canvas id="graficoLinhas"></canvas>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- RODAPÉ DA PÁGINA -->
+
+        <!-- HTML: apresenta uma informação de encerramento.
+             CSS: a estilização do rodapé é feita pela regra footer. -->
+        <footer>
+            Dashboard demonstrativo • Controle de estoque
+        </footer>
+
+
+    </main>
+
+
+    <!-- JAVASCRIPT:
+         Carrega o arquivo app.js depois da estrutura HTML.
+
+         Esse arquivo contém:
+         1. Array de objetos com os produtos.
+         2. Cálculos dos indicadores numéricos.
+         3. Organização dos dados para os gráficos.
+         4. Criação dos gráficos utilizando Chart.js.
+
+         IMPORTANTE:
+         Os IDs definidos no HTML precisam corresponder aos IDs
+         utilizados no JavaScript. -->
+    <script src="/js/app.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+    <div class="topo">
+        <div>
+            <h1>Controle de Estoque</h1>
+            <p>Gerencie seus produtos em um só lugar.</p>
+        </div>
+
+        <button class="btn-adicionar" type="button">
+            + Novo produto
+        </button>
+    </div>
+
+    <main class="container">
+
+        <div class="titulo-lista">
+            <h2>Produtos cadastrados</h2>
+           
+        </div>
+
+        <section class="lista-produtos">
+
+            <% produtoscard.forEach(produto => { %>
+
+                <article class="card">
+
+                    <img
+                        class="imagem-produto"
+                        src="<%= produto.imagem %>"
+                        alt="<%= produto.nome %>"
+                    >
+
+                    <div class="card-conteudo">
+
+                        <div class="estoques">
+                            <span class="estoque-minimo">
+                                Mínimo: <%= produto.minimo %>
+                            </span>
+
+                            <span class="<%= produto.estoque <= produto.minimo ? 'estoque-baixo' : 'estoque-ok' %>">
+                                Atual: <%= produto.estoque %>
+                            </span>
+                        </div>
+
+                        <h3><%= produto.nome %></h3>
+
+                        <p class="descricao">
+                            <%= produto.descricao %>
+                        </p>
+
+                        <div class="acoes">
+                            <a
+                                href="/estoque/editar/<%= produto.id %>"
+                                class="btn-editar"
+                            >
+                                Editar
+                            </a>
+
+                            <form
+                                action="/estoque/remover/<%= produto.id %>"
+                                method="POST"
+                                onsubmit="return confirm('Deseja remover este produto?')"
+                            >
+                                <button
+                                    type="submit"
+                                    class="btn-remover"
+                                >
+                                    Remover
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            <% }) %>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

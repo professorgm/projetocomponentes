@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= titulo %> | MineStock</title>
+        <link rel="stylesheet" href="/css/layout.css">
+        <link rel="stylesheet" href="/css/layoutvertical.css">
+        <link rel="stylesheet" href="/css/cards.css">
+        <link rel="stylesheet" href="/css/formulario.css">
+        <link rel="stylesheet" href="/css/tabela.css">
+        <link rel="stylesheet" href="/css/carrossel.css">
+        <link rel="stylesheet" href="/css/dashboard.css">
+        <link rel="stylesheet" href="/css/tabelafilmes.css">
+        <!-- <link rel="stylesheet" href="/css/layout_novo.css"> -->
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL@20..48,100..700,0..1" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+        <!-- MANTIDO: logo original -->
+        <div class="logo">LOGO</div>
+
+        <!-- ALTERADO: ID para permitir controlar o menu pelo JavaScript -->
+        <nav id="menu">
+            <a href="/dashboard">
+                <span class="material-symbols-outlined">
+                    home
+                </span>
+                <div>Início</div>
+            </a>
+            <a href="/formulario">Formulario</a>
+            <a href="/carrossel2">Carrossel</a>
+            <a href="/tabela">Tabela</a>
+            <a href="/produtos">Card</a>
+            <a href="/modal">Modal</a>
+            <a href="/">Sair</a>
+        </nav>
+
+        <!-- ADICIONADO: botão sanduíche na lateral esquerda -->
+        <button class="botao-menu" onclick="alternarMenu()">☰</button>
+
+        <div class="espaco"></div>
+    </header>
+
+    <!-- MANTER: conteúdo original -->
+    <div class="layout-conteudo">
+        <main class="pagina">
+            <%- body %>
+        </main>
+
+        <footer>
+            <p>Meu Projeto © 2026</p>
+        </footer>
+    </div>
+
+    <!-- ADICIONADO: abre e fecha o menu -->
+    <script>
+        function alternarMenu() {
+            const menu = document.getElementById("menu");
+            menu.classList.toggle("aberto");
+        }
+    </script>
+    </body>
+</html>

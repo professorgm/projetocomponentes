@@ -1,0 +1,174 @@
+<!DOCTYPE html> <!-- Define que o documento segue o padrão HTML5 -->
+<html lang="pt-BR"> <!-- Define o idioma principal da página como português do Brasil -->
+<head>
+  <meta charset="UTF-8"> <!-- Permite o uso de acentos e caracteres especiais -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Garante boa exibição em dispositivos móveis -->
+  <title>Carrossel Centralizado</title> <!-- Define o título exibido na aba do navegador -->
+ 
+  <style>
+    /* ======== ESTILOS GERAIS ======== */
+    * {
+      margin: 0; /* Remove margens padrão de todos os elementos */
+      padding: 0; /* Remove espaçamentos internos padrão */
+      box-sizing: border-box; /* Inclui bordas e padding no cálculo do tamanho total */
+    }
+    body {
+      background: #f0f0f0; /* Define cor de fundo cinza claro para o corpo da página */
+      font-family: Arial, sans-serif; /* Define a fonte padrão */
+    }
+    /* ======== CONTAINER PRINCIPAL ======== */
+    .carrossel {
+      position: relative; /* Permite posicionar elementos filhos (botões) de forma absoluta */
+      width: 80%; /* Ocupa 80% da largura disponível */
+      max-width: 800px; /* Limita a largura máxima a 800px */
+      margin: 50px auto; /* Centraliza horizontalmente e adiciona espaço superior */
+      overflow: hidden; /* Oculta conteúdo que ultrapassar o limite do contêiner */
+      border-radius: 12px; /* Arredonda os cantos do carrossel */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Adiciona uma sombra suave */
+    }
+ 
+    /* ======== SLIDES ======== */
+    .slides {
+      display: flex; /* Organiza os slides lado a lado (horizontalmente) */
+      transition: transform 0.5s ease-in-out; /* Define uma transição suave na troca dos slides */
+      width: 100%; /* Faz os slides ocuparem a largura total do container */
+    }
+    .slide {
+      min-width: 100%; /* Cada slide ocupa exatamente a largura total do carrossel */
+      height: 300px; /* Define a altura dos slides */
+      color: white; /* Define cor do texto */
+      display: flex; /* Habilita alinhamento com flexbox */
+      justify-content: center; /* Centraliza o conteúdo no eixo horizontal */
+      align-items: center; /* Centraliza o conteúdo no eixo vertical */
+      font-size: 2rem; /* Aumenta o tamanho da fonte */
+      font-weight: bold; /* Deixa o texto em negrito */
+    }
+    /* ======== CORES DE FUNDO DE CADA SLIDE ======== */
+    .azul { background: #4285f4; } /* Fundo azul (Paris) */
+    .verde { background: #34a853; } /* Fundo verde (Amazônia) */
+    .amarelo { background: #fbbc05; background-image: url(https://www.palaceresorts.com/aerial-view-cancun-palace-resorts_1f4e0ab4cb.webp); background-size: cover;       /* faz a imagem cobrir todo o espaço do elemento */  background-position: center top;  } /* Fundo amarelo (Cancún) */
+ 
+    /*
+    Valor O que faz Exemplo visual
+auto  Usa o tamanho original da imagem. (imagem pode ficar pequena ou grande demais)
+cover A imagem cobre todo o elemento, mesmo que precise ser cortada.  
+contain A imagem cabe inteira no elemento, mantendo a proporção.  
+100% 100% Estica a imagem para preencher toda a largura e altura. 
+100% auto Largura se ajusta ao elemento, altura proporcional.
+auto 100% Altura se ajusta ao elemento, largura proporcional.
+50% Reduz a imagem a 50% do tamanho original. escala manual
+200px 100px Define tamanho exato: largura 200px, altura 100px.  
+   
+    */
+ 
+    /* ======== BOTÕES DE NAVEGAÇÃO ======== */
+    .btn {
+      position: absolute; /* Posiciona o botão em relação ao carrossel */
+      top: 50%; /* Centraliza verticalmente em relação ao carrossel */
+      transform: translateY(-50%); /* Corrige o alinhamento exato no centro */
+      background: rgba(255,255,255,0.6); /* Define fundo branco semitransparente */
+      border: none; /* Remove bordas padrão */
+      width: 45px; /* Define largura do botão */
+      height: 45px; /* Define altura do botão */
+      border-radius: 50%; /* Deixa o botão redondo */
+      cursor: pointer; /* Altera o cursor ao passar o mouse */
+      display: flex; /* Usa flexbox para centralizar o conteúdo (a seta) */
+      justify-content: center; /* Centraliza horizontalmente a seta */
+      align-items: center; /* Centraliza verticalmente a seta */
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3); /* Adiciona sombra ao botão */
+    }
+ 
+    .btn:hover {
+      background: white; /* Torna o fundo branco quando o mouse passa */
+    }
+    .btn-anterior { left: 10px; } /* Posiciona o botão anterior à esquerda */
+    .btn-proximo { right: 10px; } /* Posiciona o botão próximo à direita */
+    /* ======== SETAS (criadas com bordas) ======== */
+    .seta {
+      width: 0; /* Nenhuma largura real, pois a seta é formada pelas bordas */
+      height: 0; /* Nenhuma altura real */
+      border-top: 8px solid transparent; /* Define metade superior da seta transparente */
+      border-bottom: 8px solid transparent; /* Define metade inferior da seta transparente */
+    }
+    .seta.esquerda {
+      border-right: 10px solid black; /* Cria uma seta apontando para a esquerda */
+    }
+    .seta.direita {
+      border-left: 10px solid black; /* Cria uma seta apontando para a direita */
+    }
+ 
+  </style>
+</head>
+ 
+<body>
+ 
+  <!-- ======== CONTAINER PRINCIPAL DO CARROSSEL ======== -->
+  <div class="carrossel">
+    <!-- ======== FAIXA DE SLIDES ======== -->
+    <div class="slides" id="slides">
+      <div class="slide azul">Descubra Paris</div> <!-- Slide 1 -->
+      <div class="slide verde">Aventure-se na Amazônia</div> <!-- Slide 2 -->
+      <div class="slide amarelo">Relaxe em Cancún</div> <!-- Slide 3 -->
+    </div>
+    <!-- ======== BOTÃO ANTERIOR ======== -->
+    <button class="btn btn-anterior" id="anterior">
+      <div class="seta esquerda"></div> <!-- Seta apontando para a esquerda -->
+    </button>
+    <!-- ======== BOTÃO PRÓXIMO ======== -->
+    <button class="btn btn-proximo" id="proximo">
+      <div class="seta direita"></div> <!-- Seta apontando para a direita -->
+    </button>
+  </div> 
+  <script>
+    // ======== SELEÇÃO DOS ELEMENTOS ========
+    const slides = document.getElementById('slides'); // Seleciona o container que contém todos os slides
+    const anterior = document.getElementById('anterior'); // Seleciona o botão "anterior"
+    const proximo = document.getElementById('proximo'); // Seleciona o botão "próximo"
+    const total = document.querySelectorAll('.slide').length; // Conta quantos slides existem
+    let atual = 0; // Armazena o índice do slide atual (começa no 0)
+    // ======== FUNÇÃO PARA ATUALIZAR O CARROSSEL ========
+    function atualizar() {
+      slides.style.transform = `translateX(-${atual * 100}%)`; // Move a faixa de slides horizontalmente
+      /*
+      Se atual = 0 → translateX(0%) → mostra o primeiro slide.
+      Se atual = 1 → translateX(-100%) → mostra o segundo slide.
+      Se atual = 2 → translateX(-200%) → mostra o terceiro, e assim por diante.
+      */
+    }
+    // ======== EVENTO DO BOTÃO PRÓXIMO ========
+    proximo.addEventListener('click', () => {
+      atual = (atual + 1) % total; // Avança um slide e volta ao primeiro quando chega no último
+      /*
+        atual++;
+        if (atual >= total) {
+        atual = 0;
+        }
+ 
+      */
+      atualizar(); // Chama a função que move os slides
+    });
+ 
+    // ======== EVENTO DO BOTÃO ANTERIOR ========
+    anterior.addEventListener('click', () => {
+      atual = (atual - 1 + total) % total; // Volta um slide e vai para o último quando está no primeiro
+      /*
+      atual--;
+      if (atual < 0) {
+        atual = total - 1; // volta para o último slide
+      }
+      */
+      atualizar(); // Atualiza a posição
+    });
+    /* Adicionando timer */
+    setInterval(() => {
+      atual = (atual + 1) % total; // Avança automaticamente
+      atualizar(); // Atualiza a posição do carrossel
+    }, 5000); // 5000 milissegundos = 5 segundos
+  
+  
+  </script>
+ 
+</body>
+</html>
+ 
+

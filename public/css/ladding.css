@@ -1,0 +1,306 @@
+
+/* ==============================
+   CONFIGURAÇÕES GERAIS
+   ============================== */
+
+/* Aplica estas configurações a todos os elementos da página. */
+* {
+    margin: 0; /* Remove as margens externas padrão. */
+    padding: 0; /* Remove os espaçamentos internos padrão. */
+    box-sizing: border-box; /* Inclui bordas e espaçamentos no cálculo da largura e altura. */
+}
+
+/* Faz a rolagem suave ao clicar em links de âncora. */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Configurações gerais do corpo da página. */
+body {
+    font-family: Arial, sans-serif; /* Define a fonte dos textos. */
+    color: #333; /* Define a cor padrão dos textos: cinza escuro. */
+}
+
+/* ==============================
+   BANNER PRINCIPAL
+   ============================== */
+
+.cabecalho {
+    min-height: 320px; /* Define a altura mínima do banner. */
+    width: 100%;
+    padding: 35px 40px; /* Espaçamento interno: vertical e horizontal. */
+    display: flex; /* Ativa o Flexbox para organizar os elementos. */
+    flex-direction: column; /* Organiza os elementos em coluna. */
+    align-items: center; /* Centraliza os elementos verticalmente. */
+    justify-content: center; /* Centraliza os elementos horizontalmente. */
+    text-align: center; /* Centraliza os textos. */
+    color: white; /* Define os textos do banner na cor branca. */
+    /* Cria uma camada azul transparente sobre a imagem de fundo.
+       O degradê facilita a leitura dos textos sobre a fotografia. */
+    background-image: linear-gradient(rgba(0, 75, 105, 0.62), rgba(0, 35, 65, 0.68)), url("/img/galpao.webp");
+    background-size: cover;
+    background-position: center 50%; /* Ajusta a imagem de fundo horizontalmente e verticalmente(em %) definindo área que aparece e corta */
+    background-attachment: fixed;
+    /* linear-gradient = cria o degradê de cores.
+       rgba = define cores com transparência.
+       url = carrega a imagem de fundo.
+       center 48% = posiciona a imagem.
+       cover = cobre toda a área do banner.
+       fixed = mantém a imagem fixa durante a rolagem (parallax). */
+}
+
+/* Configura o título principal do banner. */
+.cabecalho h1 {
+    font-size: 40px; /* Define o tamanho do texto. */
+    font-weight: 300; /* Define a espessura da fonte: 100 = muito fina. */
+    font-style: italic; /* Aplica o estilo itálico. */
+    margin-bottom: 12px; /* Cria espaço abaixo do título. */
+}
+
+/* Configura o subtítulo do banner. */
+.cabecalho h2 {
+    font-size: 18px; /* Define o tamanho do subtítulo. */
+    margin-bottom: 40px; /* Cria espaço abaixo do subtítulo. */
+    font-weight: 100; /* Define a espessura da fonte: 100 = muito fina. */
+}
+
+/* Configura o parágrafo do banner. */
+.cabecalho p {
+    font-size: 14px; /* Define o tamanho do texto. */
+    line-height: 1.7; /* Define o espaçamento entre as linhas. */
+    margin-bottom: 24px; /* Cria espaço abaixo do parágrafo. */
+}
+
+/* Organiza o ícone e as linhas decorativas do banner. */
+.linha-icone {
+    width: 100%; /* Ocupa toda a largura disponível. */
+    display: flex; /* Coloca os elementos lado a lado. */
+    align-items: center; /* Centraliza os elementos verticalmente. */
+    gap: 15px; /* Define o espaço entre os elementos. */
+    margin-bottom: 40px; /* Cria espaço abaixo do conjunto. */
+}
+
+/* Configura as linhas que ficam ao lado do ícone. */
+.linha-icone div {
+    flex: 1; /* Faz as linhas ocuparem o espaço disponível igualmente. */
+    height: 1px; /* Define a espessura da linha. */
+    background: rgba(255,255,255,.7); /* Define a cor branca com transparência. */
+}
+
+/* Configura o botão principal do banner. */
+.botao-destaque {
+    display: flex; /* Ativa o Flexbox. */
+    align-items: center; /* Centraliza o conteúdo verticalmente. */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente. */
+    gap: 12px; /* Espaço entre o texto e o ícone. */
+    padding: 12px 30px; /* Espaçamento interno: vertical e horizontal. */
+    background: #f04b32; /* Define a cor de fundo do botão. */
+    color: white; /* Define a cor do texto. */
+    text-decoration: none; /* Remove o sublinhado do link. */
+    font-size: 13px; /* Define o tamanho do texto. */
+    font-weight: bold; /* Deixa o texto em negrito. */
+    transition: .3s; /* Suaviza as alterações visuais em 0,3 segundo. */
+}
+
+/* Altera a aparência do botão quando o mouse passa sobre ele. */
+.botao-destaque:hover {
+    background: #d93824; /* Escurece a cor de fundo. */
+    transform: translateY(-2px); /* Move o botão 2px para cima. */
+}
+
+/* ==============================
+   TRÊS BLOCOS COLORIDOS
+   ============================== */
+
+/* Organiza os três blocos lado a lado. */
+.recursos {
+    display: flex; /* Ativa o Flexbox. */
+}
+
+/* Configurações compartilhadas pelos três blocos. */
+.recurso {
+    flex: 1; /* Faz os três blocos dividirem igualmente o espaço. */
+    min-width: 0; /* Permite que o bloco diminua sem ultrapassar o espaço. */
+    min-height: 300px; /* Define a altura mínima. */
+    padding: 30px; /* Espaçamento interno. */
+    display: flex; /* Ativa o Flexbox. */
+    flex-direction: column; /* Organiza os conteúdos em coluna. */
+    align-items: center; /* Centraliza os conteúdos horizontalmente. */
+    text-align: center; /* Centraliza os textos. */
+}
+
+/* Define a cor de fundo e dos textos de cada bloco. */
+.recurso1 { background: #42a9ce; color: white; } /* Primeiro bloco: azul. */
+.recurso2 { background: white; color: #333; } /* Segundo bloco: branco. */
+.recurso3 { background: #59b4d4; color: white; } /* Terceiro bloco: azul claro. */
+
+/* Cria o círculo que envolve os ícones. */
+.recurso_icone {
+    width: 100px; /* Largura do círculo. */
+    height: 100px; /* Altura do círculo. */
+    margin-bottom: 25px; /* Espaço abaixo do círculo. */
+    border: 2px solid rgba(255,255,255,.45); /* Borda branca transparente. */
+    border-radius: 50%; /* Transforma o elemento em círculo. */
+    display: flex; /* Ativa o Flexbox. */
+    align-items: center; /* Centraliza o ícone verticalmente. */
+    justify-content: center; /* Centraliza o ícone horizontalmente. */
+}
+
+/* Personaliza o círculo do segundo bloco. */
+.recurso2 .recurso_icone {
+    border-color: #d9edf3; /* Altera a cor da borda. */
+    color: #58aecb; /* Define a cor do ícone. */
+}
+
+/* Configura os títulos dos blocos. */
+.recurso h2 {
+    font-size: 19px; /* Define o tamanho do título. */
+    margin-bottom: 12px; /* Espaço abaixo do título. */
+}
+
+/* Configura os parágrafos dos blocos. */
+.recurso p {
+    max-width: 340px; /* Limita a largura do parágrafo. */
+    font-size: 14px; /* Define o tamanho do texto. */
+    line-height: 1.65; /* Define o espaçamento entre as linhas. */
+    margin-bottom: 20px; /* Espaço abaixo do parágrafo. */
+}
+
+/* Configura os links dos blocos. */
+.recurso_link {
+    margin-top: auto; /* Empurra o link para a parte inferior do bloco. */
+    padding: 8px 20px; /* Espaçamento interno do link. */
+    display: inline-flex; /* Organiza o texto e o ícone lado a lado. */
+    align-items: center; /* Centraliza os elementos verticalmente. */
+    gap: 8px; /* Espaço entre o texto e o ícone. */
+    color: inherit; /* Herda a cor do texto do bloco pai. */
+    text-decoration: none; /* Remove o sublinhado. */
+    font-size: 12px; /* Define o tamanho do texto. */
+    font-weight: bold; /* Aplica negrito. */
+    transition: .3s; /* Suaviza as alterações visuais. */
+}
+
+/* Efeito ao passar o mouse sobre os links. */
+.recurso_link:hover {
+    background: rgba(255,255,255,.18); /* Adiciona um fundo branco transparente. */
+}
+
+/* Personaliza o link do segundo bloco. */
+.recurso2 .recurso_link {
+    background: #55b1d0; /* Define o fundo azul. */
+    color: white; /* Define o texto branco. */
+}
+
+/* Altera o fundo do link do segundo bloco ao passar o mouse. */
+.recurso2 .recurso_link:hover {
+    background: #328eaf; /* Escurece o azul. */
+}
+
+/* ==============================
+   SEÇÕES DE INFORMAÇÕES E RODAPÉ
+   ============================== */
+
+/* Configura as seções acessadas pelos links de âncora. */
+.informacoes {
+    padding: 75px 50px; /* Espaçamento interno. */
+    text-align: center; /* Centraliza os textos. */
+    background: #e8f4f8; /* Define o fundo azul bem claro. */
+    color: #315b6b; /* Define a cor dos textos. */
+}
+
+/* Espaço abaixo dos títulos das seções. */
+.informacoes h2 {
+    margin-bottom: 12px;
+}
+
+/* Define o espaçamento entre as linhas dos parágrafos. */
+.informacoes p {
+    line-height: 1.6;
+}
+
+/* Cria uma variação de seção com fundo branco. */
+.informacoes--clara {
+    background: white;
+}
+
+/* Configura o rodapé da página. */
+.rodape {
+    padding: 22px 20px; /* Espaçamento interno. */
+    display: flex; /* Ativa o Flexbox. */
+    justify-content: space-between; /* Separa os conteúdos horizontalmente. */
+    align-items: center; /* Centraliza os conteúdos verticalmente. */
+    gap: 15px; /* Espaço entre os elementos. */
+    background: #183f53; /* Define o fundo azul escuro. */
+    color: white; /* Define a cor dos textos. */
+    font-size: 13px; /* Define o tamanho dos textos. */
+}
+
+/* Configura os links do rodapé. */
+.rodape a {
+    color: inherit; /* Herda a cor branca do rodapé. */
+    text-decoration: none; /* Remove o sublinhado. */
+}
+
+/* ==============================
+   CONFIGURAÇÕES DOS ÍCONES
+   ============================== */
+
+/* Configura todos os ícones do Google Material Symbols. */
+.material-symbols-outlined {
+    font-size: 50px; /* Define o tamanho padrão dos ícones. */
+    color: inherit; /* Herda a cor do elemento pai. */
+    font-variation-settings: 'FILL' 1, 'wght' 100;
+    /* FILL 1 = ícone preenchido; FILL 0 = contornado.
+       wght 100 = traçado muito fino; valores maiores deixam o traçado mais grosso. */
+}
+
+/* Aumenta o ícone localizado no banner. */
+.linha-icone .material-symbols-outlined {
+    font-size: 70px; /* Define o tamanho do ícone do banner. */
+}
+
+/* Define um tamanho específico para os ícones dos círculos. */
+.recurso_icone .material-symbols-outlined {
+    font-size: 65px; /* Define o tamanho dos ícones dos três blocos. */
+}
+
+/* ==============================
+   RESPONSIVIDADE
+   ============================== */
+
+/* Aplica as alterações quando a tela tem até 760px de largura. */
+@media (max-width: 760px) {
+
+    .cabecalho {
+        min-height: 350px; /* Aumenta a altura mínima do banner. */
+        background-attachment: scroll; /* Desativa o efeito parallax em telas menores. */
+    }
+
+    .recursos, .rodape {
+        flex-direction: column; /* Coloca os blocos e elementos do rodapé em coluna. */
+    }
+
+    .recurso {
+        min-height: 330px; /* Aumenta a altura mínima dos blocos. */
+    }
+
+    .rodape {
+        text-align: center; /* Centraliza os textos do rodapé. */
+    }
+}
+
+/* Aplica ajustes adicionais em telas de até 420px. */
+@media (max-width: 420px) {
+
+    .cabecalho h2 {
+        font-size: 16px; /* Reduz o tamanho do subtítulo. */
+    }
+
+    .cabecalho p {
+        font-size: 13px; /* Reduz o tamanho do parágrafo. */
+    }
+
+    .recurso {
+        padding: 35px 22px; /* Ajusta o espaçamento interno dos blocos. */
+    }
+}

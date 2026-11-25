@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= titulo %> | MineStock</title>
+        
+        <link rel="stylesheet" href="/css/layout.css">
+        <link rel="stylesheet" href="/css/layout_novo.css">
+        
+        
+        <link rel="stylesheet" href="/css/formulario.css">
+        <link rel="stylesheet" href="/css/tabela.css">
+        
+        
+    </head>
+    <body>
+<header>
+    <div class="logo">LOGO</div>
+
+    <nav id="menu">
+        <!-- MANTIDO: os links continuam iguais -->
+        <a href="/">Início</a>
+        <a href="/sobre">Sobre</a>
+        <a href="/contato">Contato</a>
+    </nav>
+
+    <!-- NOVO: botão que aparecerá em telas pequenas -->
+    <button class="botao-menu" onclick="alternarMenu()">
+        ☰
+    </button>
+
+    <div class="espaco"></div>
+</header>
+
+<main class="pagina">
+    <%- body %>
+</main>
+
+<footer>
+    <p>Meu Projeto © 2026</p>
+</footer>
+
+<!-- NOVO: JavaScript para abrir e fechar o menu -->
+<script>
+    function alternarMenu() {
+        // Busca o menu pelo seu ID
+        const menu = document.getElementById("menu");
+
+        // Adiciona ou remove a classe "aberto"
+        menu.classList.toggle("aberto");
+    }
+</script>
+</body>
+</html>

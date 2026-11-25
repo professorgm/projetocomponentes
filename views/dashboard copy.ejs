@@ -1,0 +1,19 @@
+<main class="page">
+  <section class="dashboard">
+    <header><h1>Dashboard</h1><p>Visão geral do controle de estoque.</p></header>
+    <div class="stats">
+      <article><span>Total de produtos</span><strong><%= dados.totalProdutos %></strong></article>
+      <article><span>Produtos com estoque baixo</span><strong><%= dados.estoqueBaixo %></strong></article>
+      <article><span>Movimentações</span><strong><%= dados.movimentacoes %></strong></article>
+    </div>
+    <div class="charts">
+      <article class="chart-card"><h2>Produtos por categoria</h2><canvas id="pieChart"></canvas></article>
+      <article class="chart-card"><h2>Situação do estoque</h2><canvas id="barChart"></canvas></article>
+    </div>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const dashboardData = <%- JSON.stringify(dados) %>;
+</script>
+<script src="/js/dashboard.js"></script>

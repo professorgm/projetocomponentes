@@ -1,0 +1,12 @@
+/* Base comum — regras pequenas para facilitar a reutilização dos componentes. */
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.page{max-width:1200px;margin:auto;padding:32px 20px}
+.component,.form-box,.dashboard{background:#fff;border:1px solid #e2e7ef;border-radius:16px;padding:24px;box-shadow:0 8px 25px #17203312}
+.heading{margin-bottom:20px}.heading h1,.form-box h1,.dashboard h1{margin:0 0 8px}.heading p,.form-box>p,.dashboard header p{margin:0;color:#647084}
+.footer{margin-top:auto;padding:20px;text-align:center;background:#172033;color:#fff}
+.logo-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:10px;background:#3b82f6;color:#fff;font-weight:800}
+.edit,.delete,.submit{border:0;border-radius:8px;padding:9px 12px}.edit{background:#e8f1ff;color:#1d4ed8}.delete{background:#ffe9e9;color:#b91c1c}.submit{background:#2563eb;color:#fff;padding:12px 18px}
+.home{min-height:calc(100vh - 70px);max-width:1000px;margin:auto;padding:60px 20px}.hero{display:flex;gap:18px;align-items:center;background:#fff;padding:30px;border-radius:18px}.hero h1{margin:0 0 8px}.hero p{margin:0;color:#647084}.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px}.links a{padding:16px;background:#fff;border:1px solid #e2e7ef;border-radius:12px;text-decoration:none;color:#172033}.links a:hover{border-color:#3b82f6;transform:translateY(-2px)}

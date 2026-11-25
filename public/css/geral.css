@@ -1,0 +1,172 @@
+/* Define que todos os elementos terão largura e altura calculadas incluindo bordas e preenchimento. */
+/*Imagine um card de 300px de largura, mas uma imagem ou outro elemento dentro dele ultrapassa essa área. Com hidden, a parte que sair dos limites fica escondida. */
+
+/*PARA FORMULARIO========================*/
+/* Seleciona todos os elementos da página */
+* {
+    box-sizing: border-box; /* Inclui bordas e espaçamentos no cálculo da largura */
+    margin: 0; /* Remove as margens padrão dos elementos */
+}
+
+/* Configura a estrutura geral da página */
+body {
+    min-height: 100vh; /* Garante que a página tenha, no mínimo, a altura da tela */
+    display: flex; /* Ativa o Flexbox */
+    flex-direction: column; /* Organiza os elementos um abaixo do outro */
+    font-family: Arial, sans-serif; /* Define a fonte dos textos */
+    background: #ecf6ff; /* Define o fundo geral da página */
+    color: #1e293b; /* Define a cor padrão dos textos */
+}
+
+/* Configura o cabeçalho */
+header {
+    display: flex; /* Organiza logo, menu e espaço vazio em uma linha */
+    align-items: center; /* Alinha os três elementos verticalmente pelo centro */
+    justify-content: space-between; /* Distribui o espaço entre os três elementos */
+    padding: 0 20px; /* Cria espaço interno nas laterais do cabeçalho */
+    background: linear-gradient(90deg, #9fdbf9, #479aff); /* Cria um gradiente horizontal suave */
+    min-height: 60px;
+}
+
+/*PARA TABELA=============
+*/
+.tabela-head {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-inline: 30px;
+}
+
+.pagina {
+    flex: 1;
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 50px 40px;
+    text-align: center;
+    background: #ffffff; /* Define o fundo branco do conteúdo */
+    border-radius: 12px; /* Arredonda os quatro cantos */
+    box-shadow: 0 4px 15px #00000012; /* Cria uma sombra leve ao redor do conteúdo */
+}
+
+/* Define a mesma largura para a logo e o espaço vazio */
+.logo,
+.espaco {
+    width: 100px; /* Reserva 100 pixels para cada elemento lateral */
+}
+
+/* Personaliza a logo */
+.logo {
+    font-weight: bold; /* Deixa o texto em negrito */
+    color: #1e40af; /* Define a cor azul da logo */
+}
+
+/* Configura os itens do menu */
+nav {
+    display: flex; /* Organiza os links lado a lado */
+    gap: 0px; /* Define 20 pixels de espaço entre os links */
+    align-self: stretch; /* define a altura do nav ocupando toda altura do header */
+}
+
+/* Personaliza os links do menu */
+nav a {
+    color: #1e3a8a; /* Define a cor dos links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+}
+
+nav a:hover{
+    background-color: #9fdbf9;
+}
+
+footer {
+    text-align: center; /* Centraliza o texto horizontalmente */
+    padding: 18px; /* Cria espaço interno no rodapé */
+    background: #9fdbf9; /* Define um fundo que combina com o cabeçalho */
+    color: #1e3a8a; /* Define a cor do texto do rodapé */
+}
+
+button{
+    font: inherit;
+    cursor: pointer;
+}
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+/* Cria o quadrado utilizado como marca/logo. 
+.logo-mark {*/
+    /* Usa Flexbox para facilitar a centralização do conteúdo. 
+    display: flex;*/
+    /* Centraliza o conteúdo horizontalmente. 
+    justify-content: center;*/
+    /* Centraliza o conteúdo verticalmente. 
+    align-items: center;*/
+    /* Define a largura da marca. 
+    width: 42px;*/
+    /* Define a altura da marca.
+    height: 42px; */
+    /* Arredonda os cantos.
+    border-radius: 10px; */
+    /* Define a cor de fundo. 
+    background: #3b82f6;*/
+    /* Define a cor do conteúdo. 
+    color: #ffffff;*/
+    /* Deixa o texto da marca mais forte. 
+    font-weight: 800;*/
+    /* Impede que a marca seja reduzida dentro de um Flexbox. 
+    flex-shrink: 0;
+}*/
+
+/* =========================================================
+   COMPONENTES PRINCIPAIS - PODE SER UTILIZADO COMO CONTEÚDO
+   ========================================================= */
+
+/* Define a aparência padrão dos blocos principais do sistema. */
+.componente,
+.form-box {
+    /* Define a cor de fundo do componente. 
+    background: #ffffff;
+    /* Adiciona uma borda discreta. 
+    border: 1px solid #e2e7ef;
+    /* Arredonda os cantos. 
+    border-radius: 16px;*/
+    /* Cria espaço interno entre o conteúdo e as bordas. */
+    padding: 24px;
+    /* Cria uma sombra suave ao redor do componente.
+    box-shadow: 0 8px 25px #17203312; */
+    /* Organiza o conteúdo interno em coluna. */
+    display: flex;
+    /* Coloca os elementos um abaixo do outro. */
+    flex-direction: column;
+    /* Cria espaçamento automático entre os elementos internos. 
+    gap: 0px;*/
+}
+
+.form-box form {
+    display: flex;
+    /* Permite que os componentes passem para a próxima linha. */
+    flex-wrap: wrap;
+    /* Cria espaço entre os componentes. */
+    gap: 16px;
+    /* Cria espaço entre o cabeçalho e os campos. */
+    margin-top: 24px;
+}
+
+/* Faz os campos de formulário utilizarem a mesma fonte da página. */
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+/* Mostra o cursor de mão ao passar sobre os botões. */
+button {
+    cursor: pointer;
+}

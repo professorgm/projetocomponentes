@@ -1,0 +1,244 @@
+* {
+    box-sizing: border-box; 
+    margin: 0;
+}
+
+/* Configura a estrutura geral da página */
+body {
+    min-height: 100vh; 
+    display: flex; 
+    /* Organiza o header e a área de conteúdo lado a lado. */
+    flex-direction: row;
+    font-family: Arial, sans-serif; 
+    background: #ecf6ff; 
+    color: #1e293b; 
+}
+
+
+header {
+    display: flex; 
+    justify-content: flex-start;
+    /* ALTERAR: deixa de organizar os elementos horizontalmente. */
+    flex-direction: column;
+    /* ALTERAR: permite que logo e menu ocupem a largura da barra. */
+    align-items: stretch;
+    /* ADICIONAR: define a largura fixa da barra lateral. */
+    width: 160px;
+    /* ADICIONAR: faz a barra ocupar pelo menos a altura da tela. */
+    min-height: 100vh;
+    /* ALTERAR: mantém o espaçamento apenas nas laterais. */
+    padding: 20px 0;
+    /* ADICIONAR: impede que a barra seja comprimida pelo conteúdo. */
+    flex-shrink: 0;
+    /* ALTERAR: transforma o gradiente horizontal em vertical. */
+    background: linear-gradient(180deg, #9fdbf9, #479aff);
+}
+
+/*PARA TABELA=============
+*/
+.tabela-head {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-inline: 30px;
+}
+
+.pagina {
+    flex: 1;
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 50px 40px;
+    text-align: center;
+    background: #ffffff; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px #00000012; 
+}
+
+
+.logo,
+.espaco {
+    width: 100%;
+    text-align: center;
+}
+
+.espaco {
+    display: none; /* ESPAÇO Não será mais necessário no menu vertical */
+}
+
+.logo {
+    font-weight: bold; 
+    color: #1e40af; 
+}
+
+
+nav {
+    display: flex; 
+    /* ALTERAR: empilha os links verticalmente. */
+    flex-direction: column;
+    /* MANTER: remove os intervalos entre os links. */
+    gap: 0;
+    /* ADICIONAR: faz o menu ocupar toda a largura da barra. */
+    width: 100%;
+    /* ADICIONAR: cria distância entre a logo e o primeiro link. */
+    margin-top: 30px;
+}
+
+
+nav a {
+    color: #1e3a8a; 
+    text-decoration: none;
+    display: flex;
+    /*justify-content: flex-end;*/
+    align-items: center;
+    /* ADICIONAR: permite que o link ocupe toda a largura disponível. */
+    width: 100%;
+    /* ADICIONAR: define uma altura mínima para cada item do menu. */
+    min-height: 50px;
+    /* ALTERAR: reduz o espaço lateral para combinar com a barra. */
+    padding: 0 20px;
+}
+
+nav a:hover{
+    background-color: #9fdbf9;
+    /*justify-content: flex-end;*/
+}
+
+/* ADICIONAR: organiza conteúdo e rodapé verticalmente. */
+.layout-conteudo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    min-height: 100vh;
+}
+
+footer {
+    text-align: center; 
+    padding: 18px; 
+    background: #9fdbf9; 
+    color: #1e3a8a;
+}
+
+button{
+    font: inherit;
+    cursor: pointer;
+}
+
+.componente,
+.form-box {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-box form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+
+button {
+    cursor: pointer;
+}
+
+
+
+/*===========================
+APENAS PARA SANDUíCHE
+============================*/
+
+
+/* ADICIONADO: botão escondido em telas grandes */
+.botao-menu {
+    display: none;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    color: #1e3a8a;
+    padding: 10px;
+}
+
+/* ADICIONADO: adapta o menu para telas de até 600px */
+@media (max-width: 600px) {
+
+    /* MANTÉM: a página organizada lado a lado */
+    body {
+        flex-direction: row;
+    }
+
+    /* ALTERADO: mantém a barra na lateral esquerda */
+    header {
+        width: 60px;
+        min-height: 100vh;
+        height: auto;
+        padding: 10px 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+    }
+
+    /* ADICIONADO: esconde a logo em telas pequenas */
+    .logo {
+        display: none;
+    }
+
+    /* ADICIONADO: mostra o botão na lateral esquerda */
+    .botao-menu {
+        display: block;
+    }
+
+    /* ALTERADO: menu escondido inicialmente */
+    nav {
+        display: none;
+        position: absolute;
+        top: 20px;
+        left: 60px;
+        width: 140px;
+        margin-top: 0;
+        background: #9fdbf9;
+        z-index: 10;
+    }
+
+    /* ADICIONADO: mostra o menu quando o botão é clicado */
+    nav.aberto {
+        display: flex;
+    }
+
+    /* MANTÉM: links organizados verticalmente */
+    nav a {
+        width: 100%;
+        min-height: 50px;
+        padding: 10px 15px;
+    }
+
+    /* ADICIONADO: remove o espaço lateral desnecessário */
+    .espaco {
+        display: none;
+    }
+
+    /* ADICIONADO: permite que o conteúdo use o espaço restante */
+    .layout-conteudo {
+        flex: 1;
+        min-width: 0;
+    }
+
+    /* ADICIONADO: reduz o espaçamento do conteúdo */
+    .pagina {
+        width: 95%;
+        padding: 25px 15px;
+    }
+}

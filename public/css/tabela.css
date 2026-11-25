@@ -1,0 +1,90 @@
+.editar,
+.deletar {
+    border: 0;
+    border-radius: 8px;
+    padding: 9px 12px;
+}
+
+.editar {
+    background: #bdd6ff;
+    color: #1d4ed8;
+}
+
+.deletar {
+    background: #ffe9e9;
+    color: #b91c1c;
+}
+
+.tabela-conteudo {
+    /* Cria uma área de rolagem horizontal. */
+    overflow-x: auto;
+    /* Permite que o componente ocupe toda a largura disponível. */
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    /* Remove os espaços entre as células. */
+    border-collapse: collapse;
+    /* Garante uma largura mínima para a tabela em telas grandes. */
+    min-width: 760px;
+}
+
+th,
+td {
+    padding: 13px 12px;
+    text-align: center;
+    /* Adiciona uma linha de separação entre os registros. */
+    border-bottom: 1px solid #e8ecf2;
+}
+
+th {
+    background: #f3f6fa;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #647084;
+}
+
+/* Cria uma transição suave quando o mouse passa sobre uma linha. */
+tbody tr {
+    transition: 0.2s;
+}
+
+/* Destaca a linha quando o usuário passa o mouse sobre ela. */
+tbody tr:hover {
+    background: #eef6ff;
+}
+
+/* Define o tamanho das imagens dos produtos. */
+td img {
+    width: 50px;
+    height: 50px;
+    /* Faz a imagem preencher o espaço sem distorção. 
+    Valor	        Significado	                O que acontece
+    fill	        Preencher	                Estica ou achata a imagem para ocupar exatamente o espaço
+    contain	        Conter	                    Mostra a imagem inteira, podendo deixar espaços vazios
+    cover	        Cobrir	                    Preenche todo o espaço, podendo cortar partes da imagem
+    none	        Sem ajuste	                Mantém o tamanho original da imagem
+    scale-down	    Reduzir se necessário	    Usa none ou contain, escolhendo o que resultar no menor tamanho
+    */
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Organiza os botões de ação lado a lado usando Flexbox. */
+.acoes {
+    display: flex;
+    /* Cria espaço entre os botões. */
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabela-head {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-inline: 30px;
+}

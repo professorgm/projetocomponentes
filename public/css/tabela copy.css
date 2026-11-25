@@ -1,0 +1,235 @@
+/* Remove a margem padrão do título principal. 
+.heading h1,
+.form-box h1{
+    margin: 0;
+}
+*/
+
+/* Define o espaço abaixo dos títulos. 
+.heading h1,
+.form-box h1{
+    margin-bottom: 8px;
+}
+*/
+/* Define a aparência dos textos auxiliares dos cabeçalhos. 
+.heading p,
+.form-box > p {
+    margin: 0;
+    color: #647084;
+}
+*/
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+/* Define características comuns aos botões de ação. */
+.editar,
+.deletar {
+    /* Remove a borda padrão do botão. */
+    border: 0;
+    /* Arredonda os cantos. */
+    border-radius: 8px;
+    /* Adiciona espaço interno. */
+    padding: 9px 12px;
+}
+
+/* Define a aparência do botão de edição. */
+.editar {
+    background: #bdd6ff;
+    color: #1d4ed8;
+}
+
+/* Define a aparência do botão de exclusão. */
+.deletar {
+    background: #ffe9e9;
+    color: #b91c1c;
+}
+
+
+/* =========================================================
+   TABELA
+   ========================================================= */
+
+/* Permite que a tabela seja rolada horizontalmente quando necessário. */
+.tabela-wrap {
+    /* Cria uma área de rolagem horizontal. */
+    overflow-x: auto;
+    /* Permite que o componente ocupe toda a largura disponível. */
+    width: 100%;
+}
+
+/* Define a largura da tabela. */
+table {
+    width: 100%;
+    /* Remove os espaços entre as células. */
+    border-collapse: collapse;
+    /* Garante uma largura mínima para a tabela em telas grandes. */
+    min-width: 760px;
+}
+
+/* Define o espaçamento e alinhamento das células. */
+th,
+td {
+    padding: 13px 12px;
+    text-align: left;
+    /* Adiciona uma linha de separação entre os registros. */
+    border-bottom: 1px solid #e8ecf2;
+}
+
+/* Define a aparência dos cabeçalhos da tabela. */
+th {
+    background: #f3f6fa;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #647084;
+}
+
+/* Cria uma transição suave quando o mouse passa sobre uma linha. */
+tbody tr {
+    transition: 0.2s;
+}
+
+/* Destaca a linha quando o usuário passa o mouse sobre ela. */
+tbody tr:hover {
+    background: #eef6ff;
+}
+
+/* Define o tamanho das imagens dos produtos. */
+td img {
+    width: 50px;
+    height: 50px;
+
+    /* Faz a imagem preencher o espaço sem distorção. */
+    object-fit: cover;
+
+    /* Arredonda os cantos da imagem. */
+    border-radius: 8px;
+}
+
+/* =========================================================
+   BOTÕES DE AÇÃO DA TABELA
+   ========================================================= */
+
+/* Organiza os botões de ação lado a lado usando Flexbox. */
+.acoes {
+    display: flex;
+    /* Cria espaço entre os botões. */
+    gap: 10px;
+    /* Permite que os botões quebrem linha se necessário. */
+    flex-wrap: wrap;
+    /* Centraliza os botões verticalmente. */
+    align-items: center;
+}
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+/* Aplica estas regras quando a tela tiver até 800px de largura. */
+@media (max-width: 800px) {
+
+    /* Remove a largura mínima da tabela em telas menores. */
+    table {
+        min-width: 0;
+    }
+
+    /* Esconde o cabeçalho tradicional da tabela. */
+    thead {
+        display: none;
+    }
+
+    /* Transforma a tabela, suas linhas e células em blocos. */
+    tbody,
+    tr,
+    td {
+        display: block;
+        width: 100%;
+    }
+
+    /* Transforma cada linha em um pequeno card. */
+    tr {
+        border: 1px solid #e2e7ef;
+        border-radius: 12px;
+        margin-bottom: 12px;
+        padding: 8px;
+    }
+
+    /* Organiza cada informação da linha usando Flexbox. */
+    td {
+        display: flex;
+
+        /* Coloca o nome do campo de um lado e o valor do outro. */
+        justify-content: space-between;
+
+        /* Centraliza os elementos verticalmente. */
+        align-items: center;
+
+        /* Remove a borda original da tabela. */
+        border: 0;
+
+        /* Define o espaço interno de cada informação. */
+        padding: 8px;
+
+        /* Permite que textos grandes sejam ajustados. */
+        gap: 12px;
+    }
+
+    /* Exibe o nome da coluna antes do conteúdo da célula. */
+    td::before {
+        /* Utiliza o conteúdo definido pelo atributo data-label do HTML. */
+        content: attr(data-label);
+
+        /* Destaca o nome do campo. */
+        font-weight: 700;
+
+        /* Define uma cor diferente para o rótulo. */
+        color: #647084;
+
+        /* Impede que o rótulo encolha demais. */
+        flex-shrink: 0;
+    }
+
+    /* Alinha os botões de ação à direita no modo responsivo. */
+    .acoes {
+        justify-content: flex-end;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE EXTRA PARA CELULARES
+   ========================================================= */
+
+/* Aplica estas regras em telas muito pequenas. */
+@media (max-width: 480px) {
+
+    /* Reduz o espaço interno da página. */
+    .pagina {
+        padding: 20px 12px;
+    }
+
+    /* Reduz o espaço interno dos componentes. */
+    .componente,
+    .form-box {
+        padding: 18px;
+        border-radius: 12px;
+    }
+
+    /* Permite que os dados das células sejam reorganizados verticalmente. */
+    td {
+        flex-direction: column;
+
+        /* Alinha as informações pelo lado esquerdo. */
+        align-items: flex-start;
+    }
+
+    /* Mantém os rótulos destacados. */
+    td::before {
+        margin-bottom: 3px;
+    }
+
+    /* Faz os botões ocuparem uma área maior quando necessário. */
+    .acoes {
+        width: 100%;
+    }
+}

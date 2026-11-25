@@ -1,0 +1,235 @@
+.topo {
+    background-color: #ffffff; /* Define o fundo branco do cabeçalho */
+    padding: 25px 5%; /* Define 25px de espaço vertical e 5% de espaço horizontal */
+    display: flex; /* Ativa o Flexbox para organizar os elementos filhos */
+    justify-content: space-between; /* Distribui os elementos com espaço entre eles */
+    align-items: center; /* Alinha os elementos verticalmente ao centro */
+    gap: 20px; /* Define 20px de espaço entre os elementos filhos */
+    border-bottom: 1px solid #e2e8f0; /* Cria uma borda inferior fina e cinza-clara */
+}
+
+/* Estiliza os títulos h1 que estão dentro do cabeçalho */
+.topo h1 {
+    font-size: 28px; /* Define o tamanho da fonte do título */
+    margin-bottom: 8px; /* Adiciona 8px de margem abaixo do título */
+}
+
+/* Estiliza os parágrafos que estão dentro do cabeçalho */
+.topo p {
+    color: #64748b; /* Define uma cor cinza-azulada para o texto */
+}
+
+/* Estiliza o botão de adicionar */
+.btn-adicionar {
+    background-color: #2563eb; /* Define o fundo azul do botão */
+    color: white; /* Define o texto na cor branca */
+    border: none; /* Remove a borda padrão do botão */
+    padding: 12px 18px; /* Define 12px de espaço vertical e 18px horizontal */
+    border-radius: 8px; /* Arredonda os cantos do botão */
+    font-size: 14px; /* Define o tamanho da fonte do botão */
+    cursor: pointer; /* Exibe a mãozinha ao passar o mouse sobre o botão */
+}
+.container {
+    max-width: 1400px; /* Limita a largura máxima a 1400px */
+    margin: 35px auto; /* Adiciona 35px de margem vertical e centraliza horizontalmente */
+    padding: 0 25px; /* Adiciona 25px de espaço interno nas laterais */
+}
+
+/* Organiza o título da lista e outras informações */
+.titulo-lista {
+    display: flex; /* Ativa o Flexbox para organizar os elementos filhos */
+    justify-content: space-between; /* Coloca um elemento em cada extremidade */
+    align-items: center; /* Alinha os elementos verticalmente ao centro */
+    margin-bottom: 25px; /* Adiciona espaço abaixo dessa área */
+    gap: 15px; /* Define 15px de espaço entre os elementos */
+}
+/* Estiliza o h2 dentro do título da lista */
+.titulo-lista h2 {
+    font-size: 22px; /* Define o tamanho da fonte do subtítulo */
+}
+/* Estiliza o elemento span dentro do título da lista */
+.titulo-lista span {
+    color: #64748b; /* Define a cor cinza-azulada do texto */
+    font-size: 14px; /* Define o tamanho da fonte */
+}
+
+/* Cards com Flexbox */
+
+/* Organiza os cards de produtos */
+.lista-produtos {
+    display: flex; /* Ativa o Flexbox para organizar os cards */
+    flex-wrap: wrap; /* Permite que os cards passem para a linha seguinte */
+    gap: 24px; /* Define 24px de espaço entre os cards, horizontal e verticalmente */
+}
+
+/* Define a aparência e o comportamento de cada card */
+.card {
+    background-color: #ffffff; /* Define o fundo branco do card */
+    flex: 1 1 250px; /* Permite crescer e diminuir, usando 250px como tamanho-base */
+    max-width: calc(25% - 18px); /* Limita a largura a aproximadamente um quarto da linha, descontando 18px */
+    min-width: 0; /* Permite que o card encolha sem impor uma largura mínima automática */
+    border-radius: 14px; /* Arredonda os cantos do card */
+    overflow: hidden; /* Esconde o conteúdo que ultrapassar os limites do card */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Adiciona uma sombra suave ao redor do card */
+    transition: transform 0.2s, box-shadow 0.2s; /* Suaviza as mudanças de posição e sombra em 0,2 segundo */
+}
+
+/* Aplica efeitos ao card quando o mouse passa sobre ele */
+.card:hover {
+    transform: translateY(-4px); /* Move o card 4px para cima */
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.10); /* Aumenta a sombra para destacar o card */
+}
+
+/* Imagem grande */
+
+/* Estiliza a imagem do produto */
+.imagem-produto {
+    width: 100%; /* Faz a imagem ocupar toda a largura disponível do card */
+    height: 210px; /* Define a altura da imagem em 210px */
+    object-fit: cover; /* Preenche a área da imagem sem distorcer, podendo cortar as bordas */
+    display: block; /* Faz a imagem se comportar como bloco, evitando espaço extra de linha */
+}
+
+/* Informações */
+
+/* Define o espaçamento da área interna do card */
+.card-conteudo {
+    padding: 18px; /* Adiciona 18px de espaço interno em todos os lados */
+}
+
+/* Organiza as informações sobre os estoques */
+.estoques {
+    display: flex; /* Ativa o Flexbox para organizar as informações */
+    justify-content: space-between; /* Distribui os itens com espaço entre eles */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    flex-wrap: wrap; /* Permite que os itens passem para outra linha */
+    gap: 8px; /* Define 8px de espaço entre os itens */
+    margin-bottom: 16px; /* Adiciona espaço abaixo das informações de estoque */
+}
+
+/* Aplica estilos comuns às três classificações de estoque */
+.estoque-minimo,
+.estoque-ok,
+.estoque-baixo {
+    font-size: 12px; /* Define um tamanho de fonte menor */
+    padding: 6px 8px; /* Define o espaçamento interno vertical e horizontal */
+    border-radius: 6px; /* Arredonda os cantos das etiquetas */
+}
+
+/* Estiliza a etiqueta de estoque mínimo */
+.estoque-minimo {
+    background-color: #f1f5f9; /* Define o fundo cinza-claro */
+    color: #475569; /* Define a cor do texto cinza-escuro */
+}
+
+/* Estiliza a etiqueta de estoque adequado */
+.estoque-ok {
+    background-color: #dcfce7; /* Define o fundo verde-claro */
+    color: #166534; /* Define o texto verde-escuro */
+}
+
+/* Estiliza a etiqueta de estoque baixo */
+.estoque-baixo {
+    background-color: #fee2e2; /* Define o fundo vermelho-claro */
+    color: #b91c1c; /* Define o texto vermelho-escuro */
+}
+
+/* Estiliza os títulos h3 dos cards */
+.card h3 {
+    font-size: 19px; /* Define o tamanho da fonte do nome do produto */
+    margin-bottom: 10px; /* Adiciona espaço abaixo do título */
+}
+
+/* Estiliza a descrição do produto */
+.descricao {
+    color: #64748b; /* Define a cor cinza-azulada do texto */
+    font-size: 14px; /* Define o tamanho da fonte */
+    line-height: 1.6; /* Define a altura da linha como 1,6 vez o tamanho da fonte */
+    min-height: 45px; /* Define uma altura mínima de 45px para a descrição */
+    margin-bottom: 20px; /* Adiciona espaço abaixo da descrição */
+}
+
+/* Botões */
+
+/* Organiza os botões de ação dos cards */
+.acoes {
+    display: flex; /* Coloca os botões lado a lado */
+    gap: 10px; /* Define 10px de espaço entre os botões */
+}
+
+/* Aplica regras aos links e botões dentro da área de ações */
+.acoes a,
+.acoes button {
+    flex: 1; /* Permite que os elementos dividam igualmente o espaço disponível */
+    text-align: center; /* Centraliza o texto dentro dos elementos */
+    padding: 10px 8px; /* Define o espaçamento interno vertical e horizontal */
+    border-radius: 7px; /* Arredonda os cantos */
+    font-size: 13px; /* Define o tamanho da fonte */
+    cursor: pointer; /* Exibe a mãozinha ao passar o mouse */
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+}
+/* Estiliza os formulários dentro da área de ações */
+.acoes form {
+    display: flex; /* Ativa o Flexbox dentro do formulário */
+    flex: 1; /* Permite que o formulário ocupe uma parte igual do espaço disponível */
+}
+/* Estiliza o botão de editar */
+.btn-editar {
+    background-color: #eff6ff; /* Define o fundo azul-claro */
+    color: #1d4ed8; /* Define a cor azul do texto */
+    border: 1px solid #bfdbfe; /* Adiciona uma borda azul-clara de 1px */
+}
+/* Estiliza o botão de remover */
+.btn-remover {
+    background-color: #fff1f2; /* Define o fundo rosa-claro */
+    color: #be123c; /* Define a cor vermelha do texto */
+    border: 1px solid #fecdd3; /* Adiciona uma borda rosa-clara de 1px */
+}
+/* Tablets */
+
+/* Aplica estas regras quando a largura da tela for de até 1100px */
+@media (max-width: 1100px) {
+    .card {
+        max-width: calc(33.333% - 16px); /* Limita cada card a aproximadamente um terço da linha */
+    }
+}
+
+/* Celulares */
+
+/* Aplica estas regras quando a largura da tela for de até 750px */
+@media (max-width: 750px) {
+    .card {
+        max-width: calc(50% - 12px); /* Limita cada card a aproximadamente metade da linha */
+    }
+
+    .topo h1 {
+        font-size: 23px; /* Reduz o tamanho do título do cabeçalho */
+    }
+
+    .imagem-produto {
+        height: 180px; /* Reduz a altura das imagens para 180px */
+    }
+
+    .container {
+        padding: 0 16px; /* Reduz o espaçamento interno lateral para 16px */
+    }
+}
+
+/* Celulares estreitos */
+
+/* Aplica estas regras quando a largura da tela for de até 480px */
+@media (max-width: 480px) {
+    .topo {
+        align-items: flex-start; /* Alinha os elementos à esquerda no eixo transversal */
+        flex-direction: column; /* Organiza os elementos do cabeçalho em coluna */
+    }
+
+    .card {
+        max-width: 100%; /* Permite que o card ocupe toda a largura disponível */
+        flex-basis: 100%; /* Define 100% da largura disponível como tamanho-base do card */
+    }
+
+    .imagem-produto {
+        height: 230px; /* Aumenta a altura das imagens para 230px */
+    }
+}

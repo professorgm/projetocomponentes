@@ -1,0 +1,167 @@
+/* Organiza os componentes horizontalmente usando Flexbox. */
+.form-box form {
+    display: flex;
+    /* Permite que os componentes passem para a próxima linha. */
+    flex-wrap: wrap;
+    /* Cria espaço entre os componentes. */
+    gap: 16px;
+    /* Cria espaço entre o cabeçalho e os campos. */
+    margin-top: 24px;
+}
+
+/* Faz o componente ocupar toda a linha. */
+.uma_coluna {
+    /* 
+        é o mesmo que 
+        flex-grow: 1; quanto o elemento pode crescer quando sobra espaço no container.
+        flex-shrink: 1; quanto o elemento pode diminuir quando não existe espaço suficiente.
+        flex-basis: 100%;
+        Valores:
+        0 — não cresce.
+        1 — pode crescer.
+        2, 3 etc. — cresce em relação a outros elementos
+        Se tiver um com 1 e outro com 2. Um cresce normalmente e o outro cresce o dobro em relação ao primeiro
+        */
+    flex: 1 1 100%;
+}
+
+/* Faz dois componentes ocuparem a mesma linha. */
+.duas_colunas {
+    flex: 1 1 calc(50% - 8px);
+}
+
+/* Faz três componentes ocuparem a mesma linha. */
+.tres_colunas {
+    flex: 1 1 calc(33.333% - 11px);
+}
+
+/* Organiza o texto do label e seu campo verticalmente. */
+label {
+    display: flex;
+    /* Indica que o componente será inserido abaixo da legenda */
+    flex-direction: column;
+    /* Cria espaço entre o texto e o campo. */
+    gap: 7px;
+    /* Deixa o texto do label em negrito. */
+    font-weight: 700;
+    /* Define a cor do texto. */
+    color: #354052;
+    text-align: left;
+}
+
+/* Define a aparência dos campos. */
+input,
+select,
+textarea {
+    width: 100%;
+    border: 2px solid #dce2ea;
+    border-radius: 9px;
+    padding: 11px 12px;
+    outline: none; /* Exclui o contorno do navegador quando focado no elemento para trocar cor com foco depois */
+    background: #fff;
+    /* Impede que o usuário altere o tamanho do campo manualmente. */
+    resize: none;
+}
+
+/* Destaca o campo quando ele recebe o foco. */
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px #3b82f61a;
+}
+
+/* Faz o fieldset ocupar toda a linha. */
+fieldset {
+    /*flex: 1 1 100%;*/
+    border: 2px solid #dce2ea;
+    border-radius: 9px;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Coloca as opções de rádio lado a lado. */
+.radio {
+    display: flex;
+    /* Alinha o botão e o texto verticalmente. */
+    align-items: center;
+    /* Cria espaço entre o botão e o texto. */
+    gap: 8px;
+    /* Cria espaço entre as opções. */
+    margin-right: 20px;
+    /* Remove o negrito do texto das opções. */
+    font-weight: 400;
+}
+
+/* Impede que radio buttons e checkboxes ocupem toda a largura. */
+.option input {
+    width: auto;
+}
+/* Organiza o checkbox e o texto horizontalmente. */
+.check {
+    /* Define a proporção de crescimento, redução e tamanho inicial do elemento dentro de um contêiner Flexbox. */
+    /* flex: 1 1 100%; */
+
+    /* Organiza os elementos internos em uma linha horizontal, da esquerda para a direita. */
+    flex-direction: row;
+
+    /* Alinha verticalmente os elementos internos ao centro do contêiner. */
+    align-items: center;
+
+    /* Define um espaçamento de 20px entre os elementos internos, sem adicionar espaço nas extremidades. */
+    gap: 20px;
+
+    /* Adiciona um espaçamento interno de 11px em todos os lados do elemento. */
+    padding: 11px;
+
+    /* Impede que o texto quebre para a linha seguinte, mantendo-o em uma única linha. */
+    white-space: nowrap;
+}
+
+/* Define a aparência do botão de cadastro. */
+.submit {
+    /* Alinha o botão no início do eixo transversal do contêiner Flexbox, sem esticá-lo para ocupar toda a largura. */
+    align-self: flex-start;
+
+    /* Remove a borda padrão do botão. */
+    border: 0;
+
+    /* Arredonda os cantos do botão em 8px. */
+    border-radius: 8px;
+
+    /* Define o espaçamento interno: 12px na vertical e 18px na horizontal. */
+    padding: 12px 18px;
+
+    /* Define a cor de fundo do botão como azul. */
+    background: #2563eb;
+
+    /* Define a cor do texto do botão como branca. */
+    color: #fff;
+}
+
+/* ========================================================= */
+/* RESPONSIVIDADE                                             */
+/* ========================================================= */
+
+/* Ajusta os componentes para telas menores. */
+@media (max-width: 700px) {
+
+    /* Faz os componentes de duas colunas ocuparem uma linha. */
+    .duas_colunas {
+        flex: 1 1 100%;
+    }
+
+    /* Faz os componentes de três colunas ocuparem uma linha. */
+    .tres_colunas {
+        flex: 1 1 100%;
+    }
+}
+
+
+
+
+
+
+
+

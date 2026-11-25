@@ -1,0 +1,18 @@
+{
+  "name": "projeto-componentes-estoque",
+  "version": "1.0.0",
+  "description": "Projeto Node.js + Express + EJS com componentes responsivos de controle de estoque.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "dev": "node app.js"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.10",
+    "ejs": "^3.1.10",
+    "express": "^5.3.0",
+    "express-ejs-layouts": "^2.5.1",
+    "nodemon": "^3.1.14",
+    "pg": "^8.23.1"
+  }
+}

@@ -1,0 +1,90 @@
+    <div class="topo">
+
+        <div>
+            <h1>Controle de Estoque</h1>
+            <p>Gerencie seus produtos em um só lugar.</p>
+        </div>
+
+        <button class="btn-adicionar" type="button">
+            + Novo produto
+        </button>
+
+    </div>
+
+    <main class="container">
+
+        <div class="titulo-lista">
+            <h2>Produtos cadastrados</h2>
+        </div>
+
+        <section class="lista-produtos">
+
+            <% produtos.forEach(produto => { %>
+
+                <article class="card">
+
+                    <img
+                        class="imagem-produto"
+                        src="<%= produto.imagem %>"
+                        alt="<%= produto.nome %>"
+                    >
+
+                    <div class="card-conteudo">
+
+                        <div class="estoques">
+
+                            <span class="estoque-ok">
+                                Atual: <%= produto.estoque %>
+                            </span>
+
+                        </div>
+
+                        <h3><%= produto.nome %></h3>
+
+                        <p class="descricao">
+                            <%= produto.descricao %>
+                        </p>
+
+                        <p class="categoria">
+                            Categoria: <%= produto.categoria %>
+                        </p>
+
+                        <p class="preco">
+                            R$ <%= Number(produto.preco).toFixed(2).replace('.', ',') %>
+                        </p>
+
+                        <div class="acoes">
+
+                            <a
+                                href="/produtos/editar/<%= produto.id_produto %>"
+                                class="btn-editar"
+                            >
+                                Editar
+                            </a>
+
+                            <form
+                                action="/produtos/remover/<%= produto.id_produto %>"
+                                method="POST"
+                                onsubmit="return confirm('Deseja remover este produto?')"
+                            >
+
+                                <button
+                                    type="submit"
+                                    class="btn-remover"
+                                >
+                                    Remover
+                                </button>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            <% }) %>
+
+        </section>
+
+    </main>

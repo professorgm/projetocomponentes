@@ -1,0 +1,89 @@
+  <section class="form-box">
+    <h1>Cadastro de produto</h1>
+    <p>Formulário HTML5 com diferentes tipos de componentes.</p>
+    <form action="" method="post">
+      <!-- ================================================= -->
+      <!-- PRIMEIRA LINHA: 1 COMPONENTE                     -->
+      <!-- ================================================= -->
+      <label class="uma_coluna">
+        Nome do produto
+        <input type="text" name="nome" placeholder="Nome do produto" required>
+      </label>
+
+      <!-- ================================================= -->
+      <!-- SEGUNDA LINHA: 2 COMPONENTES                     -->
+      <!-- ================================================= -->
+      <label class="duas_colunas">
+        Imagem
+        <input type="text" name="imagem" placeholder="Cole aqui a URL da imagem">
+      </label>
+      <label class="duas_colunas">
+        Categoria
+        <select name="categoria" required>
+          <option value="" disabled selected> Selecione a categoria </option>
+          <option>Alimentos</option>
+          <option>Ferramentas</option>
+          <option>Minérios</option>
+        </select>
+      </label>
+
+      <!-- ================================================= -->
+      <!-- TERCEIRA LINHA: 3 COMPONENTES                    -->
+      <!-- ================================================= -->
+      <label class="tres_colunas">
+        Valor
+        <input type="text" name="valor" placeholder="Valor em R$" required>
+      </label>
+
+      <label class="tres_colunas">
+        Estoque atual
+        <input type="number" name="atual" placeholder="Estoque atual" required>
+      </label>
+
+      <label class="tres_colunas">
+        Estoque mínimo
+        <input type="number" name="minimo" placeholder="Estoque mínimo" required>
+      </label>
+
+      <!-- ================================================= -->
+      <!-- QUARTA LINHA: 1 COMPONENTE                       -->
+      <!-- ================================================= -->
+      <label class="uma_coluna">
+        Descrição
+        <textarea name="descricao" rows="4" placeholder="Descrição do produto"></textarea>
+      </label>
+
+      <!-- ================================================= -->
+      <!-- QUINTA LINHA: 1 COMPONENTE                       -->
+      <!-- ================================================= -->
+      <div class="duas_colunas">
+      <fieldset>
+        <legend>Tipo de produto</legend>
+          <label class="radio">
+            <input type="radio" name="tipo" value="consumivel">Consumível
+          </label>
+          <label class="radio">
+            <input type="radio" name="tipo" value="permanente">Permanente
+          </label>
+      </fieldset>
+      </div>  
+      <!-- ================================================= -->
+      <!-- SEXTA LINHA: CHECKBOX                             -->
+      <!-- ================================================= -->
+      <div class="duas_colunas">
+      <fieldset>
+        <legend>Situação do produto</legend>
+        <label class="check">
+        <input type="checkbox" name="ativo">
+          Produto ativo
+        </label>
+    </fieldset>
+  </div>
+      <!-- ================================================= -->
+      <!-- BOTÃO                                              -->
+      <!-- ================================================= -->
+      <button class="submit uma_coluna" type="submit">
+        Cadastrar produto
+      </button>
+    </form>
+  </section>

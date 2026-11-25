@@ -1,0 +1,18 @@
+<main class="page">
+  <section class="form-box">
+    <h1>Cadastro de produto em grade</h1>
+    <p>O grid cria duas colunas e permite três elementos na mesma linha quando houver espaço.</p>
+    <form action="#" method="post" enctype="multipart/form-data" class="grid-form">
+      <label>Nome do produto<input type="text" name="nome" placeholder="Nome do produto" required></label>
+<label>Imagem<input type="file" name="imagem" accept="image/*"></label>
+<label>Quantidade<input type="number" name="quantidade" min="0" placeholder="Quantidade" required></label>
+<label>Estoque atual<input type="number" name="atual" min="0" placeholder="Estoque atual" required></label>
+<label>Estoque mínimo<input type="number" name="minimo" min="0" placeholder="Estoque mínimo" required></label>
+<label>Categoria<select name="categoria" required><option value="" disabled selected>Selecione a categoria</option><option>Alimentos</option><option>Ferramentas</option><option>Minérios</option></select></label>
+<label class="wide">Descrição<textarea name="descricao" rows="4" placeholder="Descrição do produto"></textarea></label>
+<fieldset><legend>Tipo de produto</legend><label class="option"><input type="radio" name="tipo" value="consumivel"> Consumível</label><label class="option"><input type="radio" name="tipo" value="permanente"> Permanente</label></fieldset>
+<label class="check option"><input type="checkbox" name="ativo"> Produto ativo</label>
+<button class="submit" type="submit">Cadastrar produto</button>
+    </form>
+  </section>
+</main>

@@ -1,0 +1,42 @@
+<!--  <section class="componente">-->
+    <div class="tabela-head">
+            <div>
+                <h1>Tabela de filmes</h1>
+                <p>As linhas mudam de aparência ao passar o mouse.</p>
+            </div>
+            <form>
+                <button class="adicionar" type="submit" title="Adicionar filme">
+                    + 
+                </button>
+            </form>
+    </div>
+    <div class="tabela-conteudo">
+      <table> 
+        <thead><tr><th>Título</th><th>Imagem</th><th>Descrição</th><th>Gênero</th><th>Nota</th><th>Classificação</th><th>Ano</th><th>Duração</th><th>Ações</th></tr></thead>
+        <tbody>
+        <% filmes.forEach(filme => { %>
+          <tr>
+            <td><%= filme.titulo %></td>
+            <td><img src="<%= filme.imagem %>" alt="<%= filme.titulo %>"></td>
+            <td class="descricao_filme"><%= filme.descricao %></td>
+            <td><%= filme.genero %></td>
+            <td><%= filme.nota %></td>
+            <td><%= filme.classificacao %></td>
+            <td><%= filme.ano %></td>
+            <td><%= filme.duracao %></td>
+            <td>
+              <div class="acoes">
+                <form>
+                  <button class="editar">Editar</button>
+                </form>
+                <form>
+                  <button class="deletar">Excluir</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        <% }) %>
+        </tbody>
+      </table>
+    </div>
+<!--  </section>-->

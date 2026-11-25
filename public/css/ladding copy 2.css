@@ -1,0 +1,231 @@
+
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+/* BANNER PRINCIPAL */
+.cabecalho {
+    min-height: 320px;
+    padding: 35px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    background:
+        linear-gradient(rgba(0, 75, 105, 0.62), rgba(0, 35, 65, 0.68)),
+        url("/img/galpao.webp") center 48% / cover fixed;
+}
+
+.cabecalho_conteudo {
+    width: 100%;
+    max-width: 1050px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cabecalho h1 {
+    font-size: 40px;
+    font-style: italic;
+    font-weight: 100;
+    margin-bottom: 18px;
+}
+
+.cabecalho h2 {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.cabecalho p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.linha-icone {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.linha-icone div {
+    height: 1px;
+    flex: 1;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.linha-icone .material-symbols-outlined {
+    font-size: 70px;
+    font-variation-settings: 'wght' 100;
+}
+
+.botao-destaque {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 30px;
+    background: #f04b32;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.botao-destaque:hover {
+    background: #d93824;
+    transform: translateY(-2px);
+}
+
+/* TRÊS BLOCOS COLORIDOS */
+.recursos {
+    display: flex;
+    width: 100%;
+}
+
+.recurso {
+    flex: 1;
+    min-width: 0;
+    min-height: 300px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.recurso1 { background: #42a9ce; color: #fff; }
+.recurso2 { background: #fff; color: #333; }
+.recurso3 { background: #59b4d4; color: #fff; }
+
+.recurso_icone {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 25px;
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+}
+
+.recurso2 .recurso_icone {
+    border-color: #d9edf3;
+    color: #58aecb;
+}
+
+.recurso_icone .material-symbols-outlined {
+    font-size: 50px;
+}
+
+.recurso h2 {
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.recurso p {
+    max-width: 340px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.recurso_link {
+    margin-top: auto;
+    padding: 10px 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: inherit;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+}
+
+.recurso_link:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.recurso2 .recurso_link {
+    background: #55b1d0;
+    color: #fff;
+}
+
+.recurso2 .recurso_link:hover {
+    background: #328eaf;
+}
+
+/* SEÇÕES DE DESTINO */
+.informacoes {
+    padding: 75px 50px;
+    text-align: center;
+    background: #e8f4f8;
+    color: #315b6b;
+}
+
+.informacoes h2 { margin-bottom: 12px; }
+.informacoes p { line-height: 1.6; }
+.informacoes--clara { background: #fff; }
+
+/* RODAPÉ */
+.rodape {
+    padding: 22px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    background: #183f53;
+    color: #fff;
+    font-size: 13px;
+}
+
+.rodape a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ÍCONES GERAIS */
+.material-symbols-outlined {
+    color: inherit;
+    font-size: 50px;
+    font-variation-settings: 'FILL' 1, 'wght' 100;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 760px) {
+    .cabecalho {
+        min-height: 350px;
+        background-attachment: scroll;
+    }
+
+    .recursos, .rodape {
+        flex-direction: column;
+    }
+
+    .recurso { min-height: 330px; }
+    .rodape { text-align: center; }
+}
+
+@media (max-width: 420px) {
+    .cabecalho h2 { font-size: 16px; }
+    .cabecalho p { font-size: 13px; }
+    .recurso { padding: 35px 22px; }
+}

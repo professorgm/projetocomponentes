@@ -1,0 +1,150 @@
+/* Configura o cabeçalho horizontal. */
+header {
+    display: flex; /* Organiza os elementos em uma linha. */
+    flex-direction: row; /* Mantém logo, menu e controle lado a lado. */
+    align-items: center; /* Alinha os elementos verticalmente. */
+    gap: 16px; /* Cria espaço entre os elementos. */
+    width: 100%; /* Ocupa toda a largura disponível. */
+    min-height: 70px; /* Garante uma altura confortável. */
+    padding: 12px 24px; /* Cria espaço interno. */
+    background: linear-gradient(90deg, #9fdbf9, #479aff); /* Aplica um gradiente azul. */
+}
+
+/* Define o tamanho e a aparência da logo. */
+.logo {
+    flex-shrink: 0; /* Evita que a logo seja comprimida. */
+    font-size: 20px; /* Destaca o texto da logo. */
+    font-weight: bold; /* Deixa a logo em negrito. */
+    color: #1e40af; /* Usa azul escuro. */
+}
+
+/* Organiza os links do menu. */
+nav {
+    display: flex; /* Coloca os links lado a lado. */
+    align-items: center; /* Alinha os links verticalmente. */
+    justify-content: center; /* Centraliza os links dentro do menu. */
+    flex: 1; /* Permite que o menu ocupe o espaço disponível. */
+    gap: 8px; /* Separa os links. */
+}
+
+/* Define a aparência dos links. */
+nav a {
+    display: flex; /* Permite centralizar o texto dentro do link. */
+    align-items: center; /* Centraliza verticalmente. */
+    justify-content: center; /* Centraliza horizontalmente. */
+    min-height: 44px; /* Facilita o uso por toque. */
+    padding: 10px 16px; /* Cria espaço interno. */
+    border-radius: 8px; /* Arredonda os cantos. */
+    color: #1e3a8a; /* Define a cor do texto. */
+    text-decoration: none; /* Remove o sublinhado. */
+    white-space: nowrap; /* Evita quebrar o nome em duas linhas. */
+    transition: background-color 0.2s; /* Suaviza a mudança ao passar o mouse. */
+}
+
+/* Destaca o link quando o usuário passa o mouse. */
+nav a:hover {
+    background-color: #ffffff80; /* Aplica um fundo branco translúcido. */
+}
+
+/* Esconde o espaço auxiliar que não é necessário neste layout. */
+.espaco {
+    display: none; /* Evita ocupar espaço sem utilidade. */
+}
+
+/* Esconde visualmente a caixa de seleção sem desativá-la. */
+.menu-toggle {
+    position: absolute; /* Retira a caixa do fluxo normal. */
+    /* width: 1px; Reduz sua largura visual. */
+    /* height: 1px; Reduz sua altura visual. */
+    overflow: hidden; /* Esconde o conteúdo excedente. */
+    clip-path: inset(50%); /* Torna a caixa invisível visualmente. */
+    white-space: nowrap; /* Evita quebra de conteúdo. */
+}
+
+/* Esconde o botão sanduíche em telas largas. */
+.menu-sanduiche {
+    display: none; /* O menu normal não precisa desse botão. */
+}
+
+/* Compacta o menu em telas intermediárias. */
+@media (min-width: 601px) and (max-width: 900px) {
+    nav {
+        gap: 4px; /* Aproxima os links para economizar espaço. */
+    }
+
+    nav a {
+        width: 48px; /* Padroniza a largura dos botões de ícone. */
+        padding: 8px; /* Reduz o espaço interno. */
+        font-size: 0; /* Esconde visualmente os nomes dos links. */
+    }
+
+    /* Mostra um ícone simples para o link Início. */
+    nav a:nth-child(1)::before {
+        content: "⌂"; /* Representa a página inicial. */
+        font-size: 24px; /* Define o tamanho do símbolo. */
+    }
+
+    /* Mostra um ícone simples para o link Sobre. */
+    nav a:nth-child(2)::before {
+        content: "ⓘ"; /* Representa informações. */
+        font-size: 22px; /* Define o tamanho do símbolo. */
+    }
+
+    /* Mostra um ícone simples para o link Contato. */
+    nav a:nth-child(3)::before {
+        content: "✉"; /* Representa contato por mensagem. */
+        font-size: 22px; /* Define o tamanho do símbolo. */
+    }
+}
+
+/* Ativa o menu sanduíche em telas estreitas. */
+@media (max-width: 600px) {
+    header {
+        flex-wrap: wrap; /* Permite colocar o menu em outra linha. */
+        justify-content: space-between; /* Separa logo e botão. */
+        padding: 12px 16px; /* Reduz as margens internas. */
+    }
+
+    /* Mostra o botão sanduíche. */
+    .menu-sanduiche {
+        display: flex; /* Permite organizar as três barras. */
+        flex-direction: column; /* Coloca as barras uma abaixo da outra. */
+        justify-content: center; /* Centraliza as barras. */
+        gap: 5px; /* Separa as barras. */
+        width: 44px; /* Define a largura do botão. */
+        height: 44px; /* Define a altura do botão. */
+        padding: 10px; /* Cria espaço ao redor das barras. */
+        cursor: pointer; /* Indica que o botão pode ser acionado. */
+        border-radius: 8px; /* Arredonda os cantos. */
+    }
+
+    /* Desenha cada uma das três barras do botão. */
+    .menu-sanduiche span {
+        display: block; /* Faz cada barra ocupar sua própria linha. */
+        width: 100%; /* Preenche a largura interna do botão. */
+        height: 3px; /* Define a espessura da barra. */
+        border-radius: 3px; /* Arredonda as pontas. */
+        background: #1e3a8a; /* Define a cor das barras. */
+    }
+
+    /* Esconde os links enquanto o menu estiver fechado. */
+    header nav {
+        display: none; /* Oculta a lista de links. */
+        flex: 0 0 100%; /* Reserva uma linha inteira para o menu. */
+        flex-direction: column; /* Empilha os links. */
+        align-items: stretch; /* Faz os links ocuparem a largura disponível. */
+        gap: 4px; /* Separa os links. */
+    }
+
+    /* Mostra o menu quando a caixa estiver marcada. */
+    .menu-toggle:checked ~ nav {
+        display: flex; /* Abre o menu sem JavaScript. */
+    }
+
+    /* Faz cada link ocupar a largura do menu aberto. */
+    nav a {
+        justify-content: flex-start; /* Alinha o texto à esquerda. */
+        width: 100%; /* Ocupa toda a largura disponível. */
+        font-size: 16px; /* Restaura o tamanho normal do texto. */
+    }
+}

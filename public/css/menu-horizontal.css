@@ -1,0 +1,12 @@
+/* Base comum — regras pequenas para facilitar a reutilização dos componentes. */
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.page{max-width:1200px;margin:auto;padding:32px 20px}
+.component,.form-box,.dashboard{background:#fff;border:1px solid #e2e7ef;border-radius:16px;padding:24px;box-shadow:0 8px 25px #17203312}
+.heading{margin-bottom:20px}.heading h1,.form-box h1,.dashboard h1{margin:0 0 8px}.heading p,.form-box>p,.dashboard header p{margin:0;color:#647084}
+.footer{margin-top:auto;padding:20px;text-align:center;background:#172033;color:#fff}
+.logo-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:10px;background:#3b82f6;color:#fff;font-weight:800}
+.edit,.delete,.submit{border:0;border-radius:8px;padding:9px 12px}.edit{background:#e8f1ff;color:#1d4ed8}.delete{background:#ffe9e9;color:#b91c1c}.submit{background:#2563eb;color:#fff;padding:12px 18px}
+.horizontal-menu{display:flex;align-items:center;gap:28px;padding:12px 24px;background:#172033;color:#fff}.brand{display:flex;align-items:center;gap:10px}.brand-name{font-weight:700}.nav-links{display:flex;gap:6px;flex:1;justify-content:flex-end}.nav-links a{color:#fff;text-decoration:none;padding:10px 12px;border-radius:8px}.nav-links a:hover{background:#ffffff18}.demo{min-height:calc(100vh - 150px);padding:50px 24px;max-width:1000px;margin:auto}.demo h1{margin-bottom:8px}.demo p{color:#647084}@media(max-width:800px){.horizontal-menu{flex-wrap:wrap}.nav-links{width:100%;overflow:auto;justify-content:flex-start}}@media(max-width:520px){.brand-name{display:none}.horizontal-menu{padding:10px}.nav-links a{font-size:13px;padding:8px}}

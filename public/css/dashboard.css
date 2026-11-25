@@ -1,0 +1,194 @@
+/* ==========================================================
+   CONFIGURAÇÕES GERAIS
+   ========================================================== */
+
+* {
+    margin: 0;                 /* Remove margens padrão. */
+    padding: 0;                /* Remove espaçamentos padrão. */
+    box-sizing: border-box;    /* Inclui borda e padding no tamanho. */
+}
+
+body {
+    font-family: Arial, sans-serif; /* Define a fonte da página. */
+    background: #F3F5F8;            /* Fundo cinza bem claro. */
+    color: #263238;                 /* Cor principal dos textos. */
+}
+
+/* Área principal do dashboard. */
+.painel {
+    width: 92%;                    /* Ocupa 92% da largura da tela. */
+    max-width: 1400px;             /* Limita a largura em telas grandes. */
+    margin: 30px auto;             /* Centraliza horizontalmente. */
+}
+
+/* ==========================================================
+   CABEÇALHO
+   ========================================================== */
+
+.cabecalho {
+    display: flex;                 /* Coloca os elementos lado a lado. */
+    flex-direction: column;
+    justify-content: center;/* Separa título e etiqueta. */
+    align-items: center;            /* Alinha verticalmente. */
+    gap: 2px;                      /* Espaço entre os elementos. */
+    margin-bottom: 25px;            /* Distância da próxima linha. */
+}
+
+.subtitulo {
+    color: #5B8DEF;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+.cabecalho h1 {
+    font-size: 28px;
+    margin-bottom: 4px;
+}
+
+.descricao,
+.legenda,
+.cabecalho-card p {
+    color: #7B8794;
+    font-size: 13px;
+}
+
+.etiqueta {
+    background: #E5EDFC;
+    color: #426FC1;
+    padding: 9px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* ==========================================================
+   FLEXBOX: ORGANIZAÇÃO DAS LINHAS
+   ========================================================== */
+
+/* Cada section.linha organiza seus cards com Flexbox. */
+.linha {
+    display: flex;                 /* Ativa o Flexbox. */
+    flex-wrap: wrap;               /* Permite quebrar para outra linha. */
+    gap: 20px;                      /* Espaço entre os cards. */
+    margin-bottom: 20px;            /* Espaço entre as linhas do dashboard. */
+}
+
+/* ==========================================================
+   CARDS DOS INDICADORES NUMÉRICOS
+   ========================================================== */
+
+.card-indicador {
+    flex: 1 1 210px;                /* Cresce, encolhe e tem base de 210px. */
+    min-width: 0;                   /* Evita estouro do conteúdo. */
+    background: #FFFFFF;
+    padding: 22px;
+    border-radius: 12px;
+    border: 1px solid #E8ECF1;
+}
+
+.titulo-indicador {
+    color: #65727E;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.numero {
+    font-size: 28px;
+    font-weight: bold;
+    color: #263238;
+    margin-bottom: 8px;
+}
+
+.legenda {
+    font-size: 12px;
+}
+
+/* ==========================================================
+   CARDS DOS GRÁFICOS
+   ========================================================== */
+
+.card-grafico {
+    flex: 1 1 400px;                /* Dois cards podem dividir a linha. */
+    min-width: 0;
+    background: #FFFFFF;
+    padding: 22px;
+    border-radius: 12px;
+    border: 1px solid #E8ECF1;
+}
+
+/* Faz este card ocupar uma proporção maior da linha. */
+.largura-grande {
+    flex: 2 1 600px;
+}
+
+/* Faz o card ocupar toda a linha. */
+.largura-total {
+    flex: 1 1 100%;
+}
+
+.cabecalho-card {
+    margin-bottom: 18px;
+}
+
+.cabecalho-card h2 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+/* O canvas precisa de uma área com altura definida. */
+.area-grafico {
+    position: relative;
+    width: 100%;
+    height: 280px;
+}
+
+.area-alta {
+    height: 390px;
+}
+
+/* ==========================================================
+   RODAPÉ
+   ========================================================== */
+
+footer {
+    text-align: center;
+    color: #89939D;
+    font-size: 12px;
+    padding: 15px 0 5px;
+}
+
+/* ==========================================================
+   RESPONSIVIDADE
+   ========================================================== */
+
+@media (max-width: 650px) {
+
+    .painel {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    .cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .cabecalho h1 {
+        font-size: 23px;
+    }
+
+    .card-indicador,
+    .card-grafico {
+        flex-basis: 100%;           /* Um card por linha em telas pequenas. */
+    }
+
+    .area-grafico {
+        height: 250px;
+    }
+
+    .area-alta {
+        height: 350px;
+    }
+}

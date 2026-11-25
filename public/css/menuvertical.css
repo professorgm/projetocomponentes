@@ -1,0 +1,226 @@
+
+/* Transforma a estrutura geral em duas colunas. */
+body {
+    display: grid; /* Usa Grid para separar menu e conteúdo. */
+    grid-template-columns: 220px minmax(0, 1fr); /* Define a barra lateral e a área principal. */
+    grid-template-rows: minmax(0, 1fr) auto; /* Reserva uma linha para o rodapé. */
+    min-height: 100vh; /* Garante a altura mínima da tela. */
+}
+
+/* Posiciona o cabeçalho na lateral esquerda. */
+header {
+    grid-column: 1; /* Ocupa a primeira coluna. */
+    grid-row: 1 / 3; /* Ocupa as duas linhas, inclusive a do rodapé. */
+    display: flex; /* Ativa o Flexbox dentro da barra lateral. */
+    flex-direction: column; /* Empilha logo e menu. */
+    align-items: stretch; /* Faz os elementos ocuparem a largura disponível. */
+    gap: 16px; /* Separa os elementos. */
+    width: 220px; /* Define a largura da barra lateral. */
+    min-height: 100vh; /* Estende a barra até a altura da tela. */
+    padding: 20px 12px; /* Cria espaço interno. */
+    background: linear-gradient(180deg, #9fdbf9, #479aff); /* Aplica o gradiente vertical. */
+}
+
+/* Destaca a logo no topo da barra. */
+.logo {
+    padding: 8px; /* Separa a logo das bordas. */
+    font-size: 20px; /* Define o tamanho do texto. */
+    font-weight: bold; /* Destaca o texto. */
+    color: #1e40af; /* Define a cor da logo. */
+}
+
+/* Empilha os links verticalmente. */
+nav {
+    display: flex; /* Ativa o Flexbox para os links. */
+    flex-direction: column; /* Coloca um link abaixo do outro. */
+    align-items: stretch; /* Faz os links ocuparem a largura da barra. */
+    gap: 6px; /* Separa os links. */
+}
+
+/* Define a aparência dos links da barra lateral. */
+nav a {
+    display: flex; /* Permite alinhar o conteúdo do link. */
+    align-items: center; /* Centraliza verticalmente. */
+    min-height: 46px; /* Facilita a seleção do link. */
+    padding: 12px 14px; /* Cria espaço interno. */
+    border-radius: 8px; /* Arredonda os cantos. */
+    color: #1e3a8a; /* Define a cor do texto. */
+    text-decoration: none; /* Remove o sublinhado. */
+    transition: background-color 0.2s; /* Suaviza o efeito ao passar o mouse. */
+}
+
+/* Destaca o link sob o cursor. */
+nav a:hover {
+    background-color: #ffffff80; /* Aplica um fundo translúcido. */
+}
+
+/* Oculta o espaço auxiliar do cabeçalho. */
+.espaco {
+    display: none; /* Não é necessário para o layout lateral. */
+}
+
+/* Posiciona o conteúdo principal à direita do menu. */
+.pagina {
+    grid-column: 2; /* Ocupa a segunda coluna. */
+    grid-row: 1; /* Fica na primeira linha. */
+    width: auto; /* Permite que o Grid controle a largura. */
+    max-width: none; /* Remove o limite de largura. */
+    margin: 32px; /* Cria espaço ao redor do conteúdo. */
+    align-self: stretch; /* Permite que o conteúdo ocupe a altura disponível. */
+}
+
+/* Posiciona o rodapé abaixo do conteúdo, à direita do menu. */
+footer {
+    grid-column: 2; /* Ocupa a segunda coluna. */
+    grid-row: 2; /* Fica na linha do rodapé. */
+}
+
+/* Esconde visualmente a caixa de seleção do menu. */
+.menu-toggle {
+    position: absolute; /* Retira a caixa do fluxo normal. */
+    width: 1px; /* Reduz sua largura visual. */
+    height: 1px; /* Reduz sua altura visual. */
+    overflow: hidden; /* Esconde o conteúdo excedente. */
+    clip-path: inset(50%); /* Torna a caixa invisível visualmente. */
+    white-space: nowrap; /* Evita quebra de conteúdo. */
+}
+
+/* Esconde o botão sanduíche em telas largas. */
+.menu-sanduiche {
+    display: none; /* Mantém a barra lateral simples. */
+}
+
+/* Reduz a barra lateral para ícones em telas intermediárias. */
+@media (min-width: 601px) and (max-width: 900px) {
+    body {
+        grid-template-columns: 76px minmax(0, 1fr); /* Diminui a largura da barra. */
+    }
+
+    header {
+        width: 76px; /* Ajusta a barra à nova coluna. */
+        padding: 20px 8px; /* Reduz o espaço interno. */
+    }
+
+    /* Oculta a logo textual na versão compacta. */
+    .logo {
+        overflow: hidden; /* Impede que o texto ultrapasse a barra. */
+        font-size: 0; /* Esconde o texto visualmente. */
+        text-align: center; /* Centraliza eventual conteúdo visível. */
+    }
+
+    /* Mostra um símbolo simples no lugar da logo textual. */
+    .logo::before {
+        content: "MS"; /* Identifica o MineStock de forma compacta. */
+        font-size: 18px; /* Define o tamanho do símbolo. */
+    }
+
+    /* Centraliza os links compactos. */
+    nav a {
+        justify-content: center; /* Centraliza os ícones. */
+        padding: 10px 4px; /* Reduz o espaço interno. */
+        font-size: 0; /* Esconde os nomes dos links. */
+    }
+
+    /* Ícone do link Início. */
+    nav a:nth-child(1)::before {
+        content: "⌂"; /* Representa a página inicial. */
+        font-size: 24px; /* Define o tamanho do símbolo. */
+    }
+
+    /* Ícone do link Sobre. */
+    nav a:nth-child(2)::before {
+        content: "ⓘ"; /* Representa informações. */
+        font-size: 22px; /* Define o tamanho do símbolo. */
+    }
+
+    /* Ícone do link Contato. */
+    nav a:nth-child(3)::before {
+        content: "✉"; /* Representa contato por mensagem. */
+        font-size: 22px; /* Define o tamanho do símbolo. */
+    }
+}
+
+/* Converte a barra lateral em menu sanduíche no celular. */
+@media (max-width: 600px) {
+    body {
+        display: flex; /* Volta a empilhar as áreas da página. */
+        flex-direction: column; /* Coloca cabeçalho, conteúdo e rodapé em sequência. */
+    }
+
+    header {
+        position: relative; /* Serve de referência para o menu expandido. */
+        flex-direction: row; /* Coloca logo e botão na mesma linha. */
+        flex-wrap: wrap; /* Permite abrir o menu abaixo da barra. */
+        align-items: center; /* Alinha os elementos verticalmente. */
+        justify-content: space-between; /* Separa logo e botão. */
+        gap: 12px; /* Cria espaço entre os elementos. */
+        width: 100%; /* Ocupa toda a largura da tela. */
+        min-height: auto; /* Remove a altura mínima da tela inteira. */
+        padding: 12px 16px; /* Reduz o espaço interno. */
+    }
+
+    /* Restaura o tamanho normal da logo. */
+    .logo {
+        font-size: 20px; /* Volta a mostrar o texto. */
+    }
+
+    /* Remove o símbolo adicional da versão compacta. */
+    .logo::before {
+        content: none; /* Evita repetir a identificação da logo. */
+    }
+
+    /* Mostra o botão sanduíche. */
+    .menu-sanduiche {
+        display: flex; /* Organiza as barras do botão. */
+        flex-direction: column; /* Coloca as barras em coluna. */
+        justify-content: center; /* Centraliza as barras. */
+        gap: 5px; /* Separa as barras. */
+        width: 44px; /* Define a largura do botão. */
+        height: 44px; /* Define a altura do botão. */
+        padding: 10px; /* Cria espaço ao redor das barras. */
+        cursor: pointer; /* Indica que o botão é interativo. */
+        border-radius: 8px; /* Arredonda os cantos. */
+    }
+
+    /* Desenha as três barras do botão. */
+    .menu-sanduiche span {
+        display: block; /* Coloca cada barra em sua própria linha. */
+        width: 100%; /* Preenche a largura interna. */
+        height: 3px; /* Define a espessura da barra. */
+        border-radius: 3px; /* Arredonda as pontas. */
+        background: #1e3a8a; /* Define a cor das barras. */
+    }
+
+    /* Esconde os links quando o menu está fechado. */
+    header nav {
+        display: none; /* Oculta os links. */
+        flex: 0 0 100%; /* Reserva uma linha inteira. */
+        flex-direction: column; /* Empilha os links. */
+        align-items: stretch; /* Faz os links ocuparem a largura disponível. */
+        gap: 4px; /* Separa os links. */
+    }
+
+    /* Abre os links quando a caixa estiver marcada. */
+    .menu-toggle:checked ~ nav {
+        display: flex; /* Exibe o menu sem JavaScript. */
+    }
+
+    /* Restaura os nomes dos links no menu aberto. */
+    nav a {
+        justify-content: flex-start; /* Alinha os nomes à esquerda. */
+        padding: 12px 14px; /* Recupera o espaço interno. */
+        font-size: 16px; /* Exibe o texto normalmente. */
+    }
+
+    /* Remove os símbolos usados na versão compacta. */
+    nav a::before {
+        content: none; /* Evita que os ícones apareçam junto aos nomes. */
+    }
+
+    /* Ajusta o conteúdo para a largura do celular. */
+    .pagina {
+        width: calc(100% - 24px); /* Mantém uma margem lateral. */
+        margin: 12px auto; /* Centraliza e reduz o espaço externo. */
+        padding: 22px 14px; /* Reduz o espaço interno. */
+    }
+}
